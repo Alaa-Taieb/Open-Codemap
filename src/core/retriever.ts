@@ -45,8 +45,10 @@ export interface RetrieverDeps {
 
 interface Scored {
   chunk: RepoChunk;
-  score: number;
+  score: number; // accumulated RRF sum (unchanged)
   mode: QueryResult['mode'];
+  bestRrf: number; // largest single RRF contribution
+  bestMode: QueryResult['mode'];
 }
 
 export class Retriever {
@@ -75,15 +77,20 @@ export class Retriever {
     const fetchK = Math.max(topK * rho, topK + 4);
 
     const scored = new Map<string, Scored>();
-    const bump = (chunk: RepoChunk, score: number, mode: QueryResult['mode']): void => {
+    const bump = (chunk: RepoChunk, rrf: number, mode: QueryResult['mode']): void => {
       const key = chunk.id;
       const existing = scored.get(key);
       if (existing) {
-        existing.score += score; // accumulate RRF across modalities
-        // Prefer the more specific mode for display (graph > vector > bm25).
-        if (modeRank(mode) > modeRank(existing.mode)) existing.mode = mode;
+        existing.score += rrf; // accumulate RRF across modalities (unchanged)
+        const incomingRank = modeRank(mode);
+        const bestRank = modeRank(existing.bestMode);
+        if (rrf > existing.bestRrf || (rrf === existing.bestRrf && incomingRank > bestRank)) {
+          existing.bestRrf = rrf;
+          existing.bestMode = mode;
+          existing.mode = mode;
+        }
       } else {
-        scored.set(key, { chunk, score, mode });
+        scored.set(key, { chunk, score: rrf, mode, bestRrf: rrf, bestMode: mode });
       }
     };
 
@@ -219,13 +226,20 @@ export class Retriever {
   }
 }
 
+/**
+ * Tie-breaker rank for choosing the displayed `mode` when two modalities contribute
+ * an equal RRF term to the same chunk. We prefer the more *specific* textual signal:
+ * BM25 (exact identifier/keyword match) > vector (semantic) > graph (structural).
+ * So on an RRF tie, an exact-identifier query surfaces as `bm25`, while a purely
+ * semantic match (no BM25 contribution) surfaces as `vector`.
+ */
 function modeRank(m: QueryResult['mode']): number {
   switch (m) {
-    case 'graph':
+    case 'bm25':
       return 3;
     case 'vector':
       return 2;
-    case 'bm25':
+    case 'graph':
       return 1;
     case 'rrf':
       return 0;

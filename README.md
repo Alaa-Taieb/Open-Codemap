@@ -161,12 +161,15 @@ node dist/cli/index.js index ./my-repo --embedder voyage
 node dist/cli/index.js serve ./my-repo --embedder mock --port 8787
 ```
 
-| Method | Path          | Body                            | Description                                         |
-| ------ | ------------- | ------------------------------- | --------------------------------------------------- |
-| POST   | `/index`      | `{ repo, embedder?, reindex? }` | Starts a background index job; returns `{ jobId }`. |
-| GET    | `/jobs/:id`   | —                               | Poll job status / progress / result.                |
-| POST   | `/query`      | `{ text, topK?, expandGraph? }` | Synchronous hybrid retrieval.                       |
-| GET    | `/workspaces` | —                               | List indexed workspaces.                            |
+| Method | Path          | Body                                                       | Description                                         |
+| ------ | ------------- | ---------------------------------------------------------- | --------------------------------------------------- |
+| POST   | `/index`      | `{ repo, embedder?, reindex? }`                            | Starts a background index job; returns `{ jobId }`. |
+| GET    | `/jobs/:id`   | —                                                          | Poll job status / progress / result.                |
+| POST   | `/query`      | `{ repo, text, topK?, expandGraph?, filters?, embedder? }` | Synchronous hybrid retrieval.                       |
+| GET    | `/workspaces` | —                                                          | List indexed workspaces.                            |
+
+> **`POST /query`** — Pass `repo` (required) to select which indexed workspace to query.
+> All other body fields are optional.
 
 ## Scripts
 
@@ -179,17 +182,18 @@ node dist/cli/index.js serve ./my-repo --embedder mock --port 8787
 
 ## Limits & open questions
 
-1. **Storage backend is WASM SQLite + JS KNN** (not native `sqlite-vec`). The `Store`
-   interface isolates this; a native `vec0` backend is a later swap. Hybrid retrieval
-   behavior is unchanged.
+1. **Storage backend is Node's built-in `node:sqlite` (Node 22+) + JS KNN** (not native
+   `sqlite-vec`). The `Store` interface isolates this; a native `vec0` backend is a later
+   swap. Hybrid retrieval behavior is unchanged. Requires Node ≥ 22.5 (see `engines` in
+   `package.json`).
 2. **Embedder dims consistency** — index + query embedders must share `dims`; switching
    requires `--rebuild`.
 3. **Graph precision** — v1 ships the import graph + a best-effort call graph from
    tree-sitter symbol queries. Precise call graphs (across files/overloads) are deferred
    to an optional LSP/SCIP pass.
 4. **Reranker** — RRF-only for MVP; a pluggable `Reranker` hook ships but is optional.
-5. **No C/C++ compiler on some environments** — the WASM tree-sitter + WASM SQLite choice
-   means Open-Codemap builds and runs with zero native compilation.
+5. **No C/C++ compiler on some environments** — the WASM tree-sitter choice (plus Node's
+   built-in `node:sqlite`) means Open-Codemap builds and runs with zero native compilation.
 
 ## License
 

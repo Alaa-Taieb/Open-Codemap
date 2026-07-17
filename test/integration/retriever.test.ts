@@ -115,4 +115,26 @@ describe('Retriever (integration)', () => {
     const res = await retriever.retrieve({ text: 'anything', topK: 5 });
     expect(res).toEqual([]);
   });
+
+  it('exact-identifier query labels at least one result as bm25', async () => {
+    writeRepo(repoDir, {
+      'a.ts': 'export function getAuthToken() { return token; }\n',
+      'b.py': 'def validate_login():\n    return True\n',
+    });
+    await indexer.indexWithStore(store, repoDir);
+
+    const res = await retriever.retrieve({ text: 'getAuthToken', topK: 5 });
+    expect(res.some((r) => r.mode === 'bm25')).toBe(true);
+  });
+
+  it('semantic query labels at least one result as vector', async () => {
+    writeRepo(repoDir, {
+      'a.ts': 'export function getAuthToken() { return token; }\n',
+      'b.py': 'def validate_login():\n    return True\n',
+    });
+    await indexer.indexWithStore(store, repoDir);
+
+    const res = await retriever.retrieve({ text: 'validate login', topK: 5 });
+    expect(res.some((r) => r.mode === 'vector')).toBe(true);
+  });
 });
