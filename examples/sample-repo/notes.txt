@@ -1,0 +1,16 @@
+Open-Codemap sample repository
+==============================
+
+This folder is used by the test suite and the README quickstart. It intentionally
+mixes languages so the indexer exercises multiple tree-sitter grammars:
+
+  - auth.ts        TypeScript: getAuthToken(), validateLogin(), helper()
+  - auth.py        Python:    validate_login(), get_auth_token()
+  - service.go     Go:        AuthService.GetAuthToken(), AuthService.ValidateLogin()
+  - notes.txt      Plain text: exercises the sliding-window chunker fallback
+
+Try it:
+
+  open-codemap index . --embedder mock
+  open-codemap query . "where do we validate login" --json
+  open-codemap query . "getAuthToken" --json

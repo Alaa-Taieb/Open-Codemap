@@ -1,0 +1,12 @@
+node_modules
+dist
+coverage
+*.sqlite
+*.sqlite-*
+.env
+.env.local
+.codemap
+.DS_Store
+*.log
+__out*
+__tmp*
