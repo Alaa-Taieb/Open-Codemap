@@ -3,10 +3,30 @@
   "version": "0.1.0",
   "description": "Local-first, open-source codebase indexer + retriever — usable as a TypeScript library, a CLI, and an HTTP API.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alaa-Taieb/Open-Codemap.git"
+  },
+  "homepage": "https://github.com/Alaa-Taieb/Open-Codemap#readme",
+  "bugs": {
+    "url": "https://github.com/Alaa-Taieb/Open-Codemap/issues"
+  },
+  "author": "Open-Codemap Contributors",
+  "keywords": [
+    "code-indexing",
+    "retrieval",
+    "rag",
+    "tree-sitter",
+    "embeddings",
+    "codebase-indexer",
+    "semantic-search"
+  ],
   "type": "module",
   "engines": {
-    "node": ">=22.5"
+    "node": ">=22.5",
+    "pnpm": ">=10"
   },
+  "sideEffects": false,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -37,7 +57,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "prepare": "husky || true",
-    "postinstall": "husky install || true"
+    "postinstall": "husky install || true",
+    "prepublishOnly": "pnpm build",
+    "prepack": "pnpm build"
   },
   "dependencies": {
     "chokidar": "^4.0.1",

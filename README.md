@@ -48,6 +48,18 @@ node dist/cli/index.js index examples/sample-repo --embedder mock
 node dist/cli/index.js query examples/sample-repo "where do we validate login" --json
 ```
 
+### Global install
+
+You can install the CLI globally and run it from anywhere using the bare `open-codemap` bin:
+
+```bash
+npm install -g open-codemap
+
+# then use the bare bin from any directory:
+open-codemap index ./my-repo --embedder mock
+open-codemap query ./my-repo "where do we validate login" --json
+```
+
 ## Architecture
 
 ```mermaid

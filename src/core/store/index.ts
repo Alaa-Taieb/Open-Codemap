@@ -5,7 +5,7 @@
  * with (used by the indexer/retriever for consistency checks). The vector KNN is
  * computed in JS (cosine) over the stored embeddings; BM25 uses SQLite FTS5; the
  * graph lives in normal tables. This keeps the storage backend swappable and
- * avoids any native build (the engine is `@sqlite.org/sqlite-wasm`).
+ * avoids any native build (the engine is Node's built-in `node:sqlite`).
  */
 
 import type { RepoChunk, SymbolNode, Edge, EmbeddingVector } from '../../types/index.js';
