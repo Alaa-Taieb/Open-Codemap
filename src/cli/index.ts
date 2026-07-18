@@ -15,7 +15,7 @@ const program = new Command();
 program
   .name('open-codemap')
   .description('Local-first codebase indexer + retriever (CLI / library / API)')
-  .version('0.1.0');
+  .version('0.1.1');
 
 registerCommands(program);
 

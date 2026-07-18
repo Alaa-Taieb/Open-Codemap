@@ -10,7 +10,7 @@
 // interface-first design.
 
 /** Package version. */
-export const VERSION = '0.1.0';
+export const VERSION = '0.1.1';
 
 // ---------------------------------------------------------------------------
 // Core classes
@@ -28,6 +28,13 @@ export type { Store, KnnHit, Bm25Hit, GraphHit } from './core/store/index.js';
 export { WorkspaceRegistry, registry } from './core/registry/index.js';
 export type { WorkspaceEntry, OpenOptions } from './core/registry/index.js';
 export { repoId, normalizeRepoPath, detectGitRemote } from './core/registry/repo-id.js';
+
+// ---------------------------------------------------------------------------
+// Parser
+// ---------------------------------------------------------------------------
+
+export { TreeSitterParser, parser } from './core/parser/index.js';
+export type { SyntaxTree } from './core/parser/index.js';
 
 // ---------------------------------------------------------------------------
 // Embedders

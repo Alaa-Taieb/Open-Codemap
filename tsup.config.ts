@@ -6,7 +6,7 @@ export default defineConfig({
     'cli/index': 'src/cli/index.ts',
     'api/index': 'src/api/index.ts',
   },
-  format: ['esm'],
+  format: ['esm', 'cjs'],
   target: 'node18',
   dts: true,
   sourcemap: true,

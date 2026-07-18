@@ -10,9 +10,27 @@
  */
 
 import { Parser, Language } from 'web-tree-sitter';
-import { getWasmPath, type SupportedLanguage } from 'tree-sitter-wasm';
+import { createRequire } from 'node:module';
+import { dirname, join } from 'node:path';
 import type { LanguageId } from '../../types/index.js';
 import { ParseError } from '../../errors.js';
+
+// `tree-sitter-wasm`'s `getWasmPath(lang)` resolves the `.wasm` relative to *its own*
+// `import.meta.url`. When OCM is bundled (esbuild/Vite/Electron), that resolution
+// breaks with `ENOENT`. Instead we resolve the real `tree-sitter-wasm` package root
+// via `createRequire` and join the well-known `out/<lang>/tree-sitter-<lang>.wasm`
+// layout. `createRequire(import.meta.url)` is transpiled to the equivalent CJS path by
+// esbuild in the `.cjs` build, so this works in both ESM and CJS.
+// esbuild transpiles `import.meta.url` to `undefined` in the CJS (`.cjs`) build, so
+// we fall back to `__filename` (which esbuild defines for CJS) when it is available.
+// This yields a working `createRequire` in both ESM and CJS outputs.
+const req = createRequire(typeof __filename !== 'undefined' ? __filename : import.meta.url);
+
+/** Absolute path to a language's prebuilt grammar wasm inside `tree-sitter-wasm`. */
+export function resolveGrammarWasmPath(lang: SupportedGrammar): string {
+  const pkgRoot = dirname(req.resolve('tree-sitter-wasm'));
+  return join(pkgRoot, 'out', lang, `tree-sitter-${lang}.wasm`);
+}
 
 let runtimeReady = false;
 
@@ -64,8 +82,22 @@ export function languageForFile(file: string): LanguageId | null {
   }
 }
 
-/** Tree-sitter `getWasmPath` name for each supported language. */
-const WASM_NAME: Record<Exclude<LanguageId, 'text'>, SupportedLanguage> = {
+/** The set of grammar folder names shipped by `tree-sitter-wasm` that OCM supports. */
+export type SupportedGrammar =
+  | 'javascript'
+  | 'typescript'
+  | 'tsx'
+  | 'python'
+  | 'go'
+  | 'rust'
+  | 'java'
+  | 'c'
+  | 'cpp'
+  | 'c_sharp'
+  | 'ruby';
+
+/** Tree-sitter grammar folder name for each supported language. */
+const WASM_NAME: Record<Exclude<LanguageId, 'text'>, SupportedGrammar> = {
   javascript: 'javascript',
   typescript: 'typescript',
   tsx: 'tsx',
@@ -90,12 +122,13 @@ export async function loadLanguage(id: LanguageId): Promise<Language | null> {
   const promise = (async () => {
     await ensureParserReady();
     try {
-      const path = getWasmPath(wasmName);
+      const path = resolveGrammarWasmPath(wasmName);
       return await Language.load(path);
     } catch (cause) {
+      const wasmPath = resolveGrammarWasmPath(wasmName);
       throw new ParseError(`Failed to load grammar for language "${id}"`, {
         cause,
-        details: { language: id, wasmPath: getWasmPath(wasmName) },
+        details: { language: id, wasmPath },
       });
     }
   })();

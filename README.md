@@ -134,7 +134,9 @@ const indexer = new Indexer({ embedder, parser, registry });
 await indexer.index('./my-repo'); // builds .codemap/<repo>.sqlite
 
 const store = await registry.open('./my-repo', { dims: embedder.dims });
-const retriever = new Retriever({ store, embedder });
+// `repoId` is REQUIRED — the same id the indexer used (a workspace is scoped to one repo).
+const rid = await registry.resolveRepoId('./my-repo');
+const retriever = new Retriever({ store, embedder, repoId: rid });
 
 const results = await retriever.retrieve({
   text: 'where do we validate login',
@@ -145,6 +147,31 @@ for (const r of results) {
   console.log(`${r.score.toFixed(3)} [${r.mode}] ${r.chunk.file}:${r.chunk.symbol}`);
 }
 ```
+
+> **`repoId` is required.** `new Retriever({ store, embedder })` throws a `ConfigError`
+> (`Retriever requires a \`repoId\` ...`) unless `repoId`is supplied. Obtain it via`WorkspaceRegistry.resolveRepoId(repoPath)`or`repoId(repoPath)`.
+
+### Library API notes
+
+- **`QueryRequest` has no `mode`.** `mode` (`bm25` | `vector` | `graph` | `rrf`) is a
+  **result** field on each `QueryResult`, describing which signal contributed the
+  winning RRF term — not something you pass on the request. Requests take
+  `{ text, topK?, filters?, expandGraph? }`.
+- **`embed()` is batched.** Every `Embedder.embed(texts: string[])` takes an **array** of
+  strings and returns `EmbeddingVector[]` (one per input), not a single string. Use
+  `embedBatch(embedder, texts)` to chunk very large inputs into fixed-size batches.
+- **CommonJS is supported.** v0.1.1+ ships dual ESM + CJS builds, so
+  `require('@alaa-taieb/open-codemap')` works in Node CJS / Electron apps:
+
+  ```js
+  const {
+    Indexer,
+    Retriever,
+    HashEmbedder,
+    TreeSitterParser,
+    VERSION,
+  } = require('@alaa-taieb/open-codemap');
+  ```
 
 ## Embedder configuration
 

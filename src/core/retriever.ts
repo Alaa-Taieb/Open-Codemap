@@ -21,6 +21,7 @@ import type { Embedder } from './embed/index.js';
 import type { Store, Bm25Hit, GraphHit } from './store/index.js';
 import type { QueryRequest, QueryResult, RepoChunk, SymbolNode } from '../types/index.js';
 import { createLogger, type Logger } from '../logger.js';
+import { ConfigError } from '../errors.js';
 
 /** RRF constant — higher k = flatter fusion (rank matters less). k=60 is standard. */
 const RRF_K = 60;
@@ -59,6 +60,13 @@ export class Retriever {
   private readonly log: Logger;
 
   constructor(deps: RetrieverDeps) {
+    if (!deps.repoId) {
+      throw new ConfigError('Retriever requires a `repoId` (the same id the indexer used).', {
+        details: {
+          hint: 'Obtain via WorkspaceRegistry.resolveRepoId() or repoId(repoPath).',
+        },
+      });
+    }
     this.store = deps.store;
     this.embedder = deps.embedder;
     this.repoId = deps.repoId;

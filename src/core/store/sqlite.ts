@@ -28,7 +28,9 @@ const META_DIMS = 'dims';
 // Lazily load node:sqlite via createRequire. A static `import ... from 'node:sqlite'`
 // is stripped of its `node:` prefix by vite-node's transformer and fails to resolve;
 // loading it at runtime via createRequire avoids that and keeps file-based persistence.
-const require = createRequire(import.meta.url);
+// esbuild transpiles `import.meta.url` to `undefined` in the CJS (`.cjs`) build, so
+// we fall back to `__filename` (which esbuild defines for CJS) when it is available.
+const require = createRequire(typeof __filename !== 'undefined' ? __filename : import.meta.url);
 let DatabaseSyncCtor: typeof DatabaseSync | null = null;
 function getDatabaseSync(): typeof DatabaseSync {
   if (DatabaseSyncCtor) return DatabaseSyncCtor;
