@@ -1,0 +1,415 @@
+{
+  "tasks": [
+    {
+      "id": "NS-001",
+      "title": "Tree-sitter parser, cAST chunker and symbol extraction",
+      "description": "",
+      "featureId": "F-001",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-001"
+      ],
+      "dependsOn": [],
+      "priority": "high",
+      "status": "implemented",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "Parser, chunker and symbol unit tests pass"
+        },
+        {
+          "id": "AC2",
+          "text": "Grammar wasm resolves when bundled (grammar-resolution test)"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "commits": [],
+      "files": [],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:18:33.620Z",
+        "by": "claude-code",
+        "summary": "Found during repository analysis (inferred, unverified).",
+        "revision": "fcb1eab01eed83be35672be7d62e2534f59044d6+dirty",
+        "tree": "e3874c69616ff0ebeb6f71a184b3d43b032e49db"
+      },
+      "evidence": [],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:18:33.620Z"
+    },
+    {
+      "id": "NS-002",
+      "title": "Incremental indexer with content-hash fix-up and watch mode",
+      "description": "",
+      "featureId": "F-002",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-002"
+      ],
+      "dependsOn": [],
+      "priority": "high",
+      "status": "implemented",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "Indexer integration test passes"
+        },
+        {
+          "id": "AC2",
+          "text": "Watch integration test passes"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "commits": [],
+      "files": [],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:18:33.620Z",
+        "by": "claude-code",
+        "summary": "Found during repository analysis (inferred, unverified).",
+        "revision": "fcb1eab01eed83be35672be7d62e2534f59044d6+dirty",
+        "tree": "e3874c69616ff0ebeb6f71a184b3d43b032e49db"
+      },
+      "evidence": [],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:18:33.620Z"
+    },
+    {
+      "id": "NS-003",
+      "title": "SqliteStore (node:sqlite + FTS5 + JS KNN) and workspace registry",
+      "description": "",
+      "featureId": "F-003",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-006"
+      ],
+      "dependsOn": [],
+      "priority": "high",
+      "status": "implemented",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "Store, store-interface and registry unit tests pass"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "commits": [],
+      "files": [],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:18:33.620Z",
+        "by": "claude-code",
+        "summary": "Found during repository analysis (inferred, unverified).",
+        "revision": "fcb1eab01eed83be35672be7d62e2534f59044d6+dirty",
+        "tree": "e3874c69616ff0ebeb6f71a184b3d43b032e49db"
+      },
+      "evidence": [],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:18:33.620Z"
+    },
+    {
+      "id": "NS-004",
+      "title": "Mock, Voyage and Jina embedders with batching",
+      "description": "",
+      "featureId": "F-004",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-004"
+      ],
+      "dependsOn": [],
+      "priority": "high",
+      "status": "implemented",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "Embedder unit tests pass (mock, voyage, embed)"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "commits": [],
+      "files": [],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:18:33.620Z",
+        "by": "claude-code",
+        "summary": "Found during repository analysis (inferred, unverified).",
+        "revision": "fcb1eab01eed83be35672be7d62e2534f59044d6+dirty",
+        "tree": "e3874c69616ff0ebeb6f71a184b3d43b032e49db"
+      },
+      "evidence": [],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:18:33.620Z"
+    },
+    {
+      "id": "NS-005",
+      "title": "Hybrid retriever with RRF, graph expansion and fallback",
+      "description": "",
+      "featureId": "F-005",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-003"
+      ],
+      "dependsOn": [],
+      "priority": "high",
+      "status": "implemented",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "Retriever integration test passes"
+        },
+        {
+          "id": "AC2",
+          "text": "Retriever API-shape test passes (repoId required, mode is a result field)"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "commits": [],
+      "files": [],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:18:33.620Z",
+        "by": "claude-code",
+        "summary": "Found during repository analysis (inferred, unverified).",
+        "revision": "fcb1eab01eed83be35672be7d62e2534f59044d6+dirty",
+        "tree": "e3874c69616ff0ebeb6f71a184b3d43b032e49db"
+      },
+      "evidence": [],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:18:33.620Z"
+    },
+    {
+      "id": "NS-006",
+      "title": "CLI: index, query, list, serve",
+      "description": "",
+      "featureId": "F-006",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-005"
+      ],
+      "dependsOn": [],
+      "priority": "medium",
+      "status": "implemented",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "Quickstart against examples/sample-repo indexes and returns results for 'where do we validate login'"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "commits": [],
+      "files": [],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:18:33.620Z",
+        "by": "claude-code",
+        "summary": "Found during repository analysis (inferred, unverified).",
+        "revision": "fcb1eab01eed83be35672be7d62e2534f59044d6+dirty",
+        "tree": "e3874c69616ff0ebeb6f71a184b3d43b032e49db"
+      },
+      "evidence": [],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:18:33.620Z"
+    },
+    {
+      "id": "NS-007",
+      "title": "Fastify HTTP API with background index jobs",
+      "description": "",
+      "featureId": "F-007",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-005"
+      ],
+      "dependsOn": [],
+      "priority": "medium",
+      "status": "implemented",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "API integration test passes"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "commits": [],
+      "files": [],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:18:33.620Z",
+        "by": "claude-code",
+        "summary": "Found during repository analysis (inferred, unverified).",
+        "revision": "fcb1eab01eed83be35672be7d62e2534f59044d6+dirty",
+        "tree": "e3874c69616ff0ebeb6f71a184b3d43b032e49db"
+      },
+      "evidence": [],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:18:33.620Z"
+    },
+    {
+      "id": "NS-008",
+      "title": "Dual ESM + CJS build and public API barrel",
+      "description": "",
+      "featureId": "F-008",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-005",
+        "REQ-006"
+      ],
+      "dependsOn": [],
+      "priority": "medium",
+      "status": "implemented",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "pnpm build succeeds"
+        },
+        {
+          "id": "AC2",
+          "text": "CJS require test passes"
+        },
+        {
+          "id": "AC3",
+          "text": "pnpm typecheck passes"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "commits": [],
+      "files": [],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:18:33.620Z",
+        "by": "claude-code",
+        "summary": "Found during repository analysis (inferred, unverified).",
+        "revision": "fcb1eab01eed83be35672be7d62e2534f59044d6+dirty",
+        "tree": "e3874c69616ff0ebeb6f71a184b3d43b032e49db"
+      },
+      "evidence": [],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:18:33.620Z"
+    },
+    {
+      "id": "NS-009",
+      "title": "Fix README: default embedder is mock, not Voyage",
+      "description": "",
+      "featureId": "F-009",
+      "milestoneId": "MS-002",
+      "requirementIds": [
+        "REQ-007"
+      ],
+      "dependsOn": [],
+      "priority": "low",
+      "status": "planned",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "README embedder section matches the CLI --embedder default"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "commits": [],
+      "files": [],
+      "evidence": [],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:18:47.351Z"
+    },
+    {
+      "id": "NS-010",
+      "title": "Fix changeset package name and stale CHANGELOG 'Unreleased' entry",
+      "description": "",
+      "featureId": "F-009",
+      "milestoneId": "MS-002",
+      "requirementIds": [
+        "REQ-007"
+      ],
+      "dependsOn": [],
+      "priority": "low",
+      "status": "planned",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "Changeset references @alaa-taieb/open-codemap"
+        },
+        {
+          "id": "AC2",
+          "text": "CHANGELOG has no stale scaffold entry"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "commits": [],
+      "files": [],
+      "evidence": [],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:18:47.636Z"
+    },
+    {
+      "id": "NS-011",
+      "title": "Single local gate command (lint + typecheck + test + build)",
+      "description": "",
+      "featureId": "F-009",
+      "milestoneId": "MS-002",
+      "requirementIds": [
+        "REQ-007"
+      ],
+      "dependsOn": [],
+      "priority": "medium",
+      "status": "planned",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "One pnpm script runs all gates and fails on any failure"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "commits": [],
+      "files": [],
+      "evidence": [],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:18:47.920Z"
+    }
+  ]
+}

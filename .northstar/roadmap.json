@@ -1,0 +1,176 @@
+{
+  "version": 1,
+  "milestones": [
+    {
+      "id": "MS-001",
+      "title": "MVP v0.1 (existing)",
+      "goal": "Record and verify the shipped v0.1.1: indexer, retriever, embedders, CLI, API, library packaging.",
+      "order": 0,
+      "exitCriteria": [
+        {
+          "id": "X1",
+          "text": "All tests pass locally",
+          "status": "unmet"
+        },
+        {
+          "id": "X2",
+          "text": "Build produces ESM + CJS outputs",
+          "status": "unmet"
+        },
+        {
+          "id": "X3",
+          "text": "Published 0.1.1 matches main",
+          "status": "unmet"
+        }
+      ],
+      "dependsOn": [],
+      "provenance": "stated"
+    },
+    {
+      "id": "MS-002",
+      "title": "Housekeeping & release hygiene",
+      "goal": "Fix inconsistencies found during adoption so docs, changesets and gates are trustworthy.",
+      "order": 1,
+      "exitCriteria": [
+        {
+          "id": "X1",
+          "text": "README matches CLI defaults",
+          "status": "unmet"
+        },
+        {
+          "id": "X2",
+          "text": "Changesets reference the real package name",
+          "status": "unmet"
+        },
+        {
+          "id": "X3",
+          "text": "One local command runs all quality gates",
+          "status": "unmet"
+        }
+      ],
+      "dependsOn": [
+        "MS-001"
+      ],
+      "provenance": "inferred"
+    }
+  ],
+  "features": [
+    {
+      "id": "F-001",
+      "title": "Parsing & chunking",
+      "description": "",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-001"
+      ],
+      "dependsOn": [],
+      "provenance": "stated",
+      "artifacts": []
+    },
+    {
+      "id": "F-002",
+      "title": "Incremental indexer + watch",
+      "description": "",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-002"
+      ],
+      "dependsOn": [],
+      "provenance": "stated",
+      "artifacts": []
+    },
+    {
+      "id": "F-003",
+      "title": "SQLite store + workspace registry",
+      "description": "",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-006"
+      ],
+      "dependsOn": [],
+      "provenance": "stated",
+      "artifacts": []
+    },
+    {
+      "id": "F-004",
+      "title": "Embedders",
+      "description": "",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-004"
+      ],
+      "dependsOn": [],
+      "provenance": "stated",
+      "artifacts": []
+    },
+    {
+      "id": "F-005",
+      "title": "Hybrid retriever",
+      "description": "",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-003"
+      ],
+      "dependsOn": [],
+      "provenance": "stated",
+      "artifacts": []
+    },
+    {
+      "id": "F-006",
+      "title": "CLI",
+      "description": "",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-005"
+      ],
+      "dependsOn": [],
+      "provenance": "stated",
+      "artifacts": []
+    },
+    {
+      "id": "F-007",
+      "title": "HTTP API",
+      "description": "",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-005"
+      ],
+      "dependsOn": [],
+      "provenance": "stated",
+      "artifacts": []
+    },
+    {
+      "id": "F-008",
+      "title": "Library packaging (ESM + CJS)",
+      "description": "",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-005",
+        "REQ-006"
+      ],
+      "dependsOn": [],
+      "provenance": "stated",
+      "artifacts": []
+    },
+    {
+      "id": "F-009",
+      "title": "Docs & release hygiene",
+      "description": "",
+      "milestoneId": "MS-002",
+      "requirementIds": [
+        "REQ-007"
+      ],
+      "dependsOn": [],
+      "provenance": "inferred",
+      "artifacts": []
+    }
+  ],
+  "history": [
+    {
+      "version": 1,
+      "at": "2026-10-18T18:16:20.040Z",
+      "actor": "claude-code",
+      "reason": "Project initialized"
+    }
+  ]
+}

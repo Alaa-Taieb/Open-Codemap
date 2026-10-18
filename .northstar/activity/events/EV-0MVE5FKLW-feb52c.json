@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE5FKLW-feb52c",
+  "type": "feature.created",
+  "at": "2026-10-18T18:18:33.620Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "F-003"
+  ],
+  "summary": "Feature F-003 created: SQLite store + workspace registry"
+}

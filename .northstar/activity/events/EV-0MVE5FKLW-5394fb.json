@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE5FKLW-5394fb",
+  "type": "task.created",
+  "at": "2026-10-18T18:18:33.620Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-006"
+  ],
+  "summary": "Task NS-006 created: CLI: index, query, list, serve"
+}

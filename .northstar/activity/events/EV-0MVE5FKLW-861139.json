@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE5FKLW-861139",
+  "type": "task.created",
+  "at": "2026-10-18T18:18:33.620Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-011"
+  ],
+  "summary": "Task NS-011 created: Single local gate command (lint + typecheck + test + build)"
+}

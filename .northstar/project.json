@@ -1,0 +1,29 @@
+{
+  "name": "@alaa-taieb/open-codemap",
+  "idea": "Local-first, open-source codebase indexer + retriever (tree-sitter chunking, pluggable embeddings, SQLite + FTS5, hybrid vector/BM25/graph retrieval via RRF) usable as a TypeScript library, CLI and HTTP API",
+  "origin": "adopted",
+  "idPrefix": "NS",
+  "cli": "northstar",
+  "createdAt": "2026-10-18T18:16:20.040Z",
+  "createdBy": "claude-code",
+  "vision": {
+    "status": "approved",
+    "version": 1,
+    "approvedAt": "2026-10-18T18:23:19.042Z",
+    "approvedBy": "human",
+    "sha256": "58685ec19e613fae85f1eca80e9763f637668052ebc12ab540905bdd93863170",
+    "history": [
+      {
+        "version": 1,
+        "file": "vision-history/v1.md",
+        "sha256": "58685ec19e613fae85f1eca80e9763f637668052ebc12ab540905bdd93863170",
+        "approvedAt": "2026-10-18T18:23:19.042Z",
+        "approvedBy": "human"
+      }
+    ]
+  },
+  "specification": {
+    "sha256": "63c014d8b23389a60fd8e5b6c8072addb17117790730d7c2b2a1beb4f1416b9e",
+    "baselinedAt": "2026-10-18T18:23:19.042Z"
+  }
+}

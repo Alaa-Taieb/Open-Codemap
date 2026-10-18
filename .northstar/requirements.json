@@ -1,0 +1,110 @@
+{
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "title": "Index any repository into structural chunks",
+      "description": "Parse files with tree-sitter and chunk by function/class/method, falling back to a sliding window for unsupported files.",
+      "kind": "functional",
+      "priority": "must",
+      "status": "approved",
+      "acceptance": [
+        "Supported-language files produce one chunk per top-level symbol",
+        "Unsupported or unparseable files are still indexed via windowed chunks"
+      ],
+      "provenance": "stated",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "updatedAt": "2026-10-18T18:18:33.620Z"
+    },
+    {
+      "id": "REQ-002",
+      "title": "Incremental and live re-indexing",
+      "description": "Only changed chunks are re-embedded; moved code is fixed up by content hash; watch mode keeps the index live.",
+      "kind": "functional",
+      "priority": "must",
+      "status": "approved",
+      "acceptance": [
+        "Re-indexing an unchanged repo embeds nothing new",
+        "Watch mode picks up a file edit"
+      ],
+      "provenance": "stated",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "updatedAt": "2026-10-18T18:18:33.620Z"
+    },
+    {
+      "id": "REQ-003",
+      "title": "Hybrid vector + BM25 + graph retrieval with RRF",
+      "description": "Queries combine semantic, exact-identifier and code-graph signals fused by RRF, degrading to BM25+graph if the embedder fails.",
+      "kind": "functional",
+      "priority": "must",
+      "status": "approved",
+      "acceptance": [
+        "Identifier queries rank the exact symbol first",
+        "Plain-English queries return the relevant function",
+        "Embedder failure still returns BM25/graph results"
+      ],
+      "provenance": "stated",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "updatedAt": "2026-10-18T18:18:33.620Z"
+    },
+    {
+      "id": "REQ-004",
+      "title": "Pluggable embedders",
+      "description": "Mock (offline, deterministic), Voyage and Jina embedders behind one interface, with dims-consistency enforcement.",
+      "kind": "functional",
+      "priority": "must",
+      "status": "approved",
+      "acceptance": [
+        "Mock embedder works with no network or key",
+        "Switching dims without rebuild is rejected"
+      ],
+      "provenance": "stated",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "updatedAt": "2026-10-18T18:18:33.620Z"
+    },
+    {
+      "id": "REQ-005",
+      "title": "Library, CLI and HTTP API surfaces",
+      "description": "The same engine is exposed as a TypeScript library (ESM + CJS), a CLI (index/query/list/serve) and a Fastify HTTP API (index jobs, query, workspaces).",
+      "kind": "functional",
+      "priority": "must",
+      "status": "approved",
+      "acceptance": [
+        "Library importable via import and require",
+        "CLI commands work end to end",
+        "API endpoints respond per the README"
+      ],
+      "provenance": "stated",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "updatedAt": "2026-10-18T18:18:33.620Z"
+    },
+    {
+      "id": "REQ-006",
+      "title": "Local-first, zero native compilation",
+      "description": "Runs on Node >= 22.5 with WASM tree-sitter and node:sqlite; one portable SQLite file per workspace; no data leaves the machine unless a remote embedder is chosen.",
+      "kind": "constraint",
+      "priority": "must",
+      "status": "approved",
+      "acceptance": [
+        "Fresh install builds with no native toolchain",
+        "Index is a single SQLite file per workspace"
+      ],
+      "provenance": "stated",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "updatedAt": "2026-10-18T18:18:33.620Z"
+    },
+    {
+      "id": "REQ-007",
+      "title": "Local quality gates",
+      "description": "Lint, typecheck, tests and build pass locally, since hosted CI is unavailable.",
+      "kind": "nonfunctional",
+      "priority": "should",
+      "status": "approved",
+      "acceptance": [
+        "pnpm lint, typecheck, test and build all pass on a clean checkout"
+      ],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "updatedAt": "2026-10-18T18:18:33.620Z"
+    }
+  ]
+}

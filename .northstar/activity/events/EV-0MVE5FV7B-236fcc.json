@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE5FV7B-236fcc",
+  "type": "task.updated",
+  "at": "2026-10-18T18:18:47.351Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-009"
+  ],
+  "summary": "Task NS-009 updated"
+}

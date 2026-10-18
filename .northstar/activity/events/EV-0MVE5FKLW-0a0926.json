@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE5FKLW-0a0926",
+  "type": "decision.recorded",
+  "at": "2026-10-18T18:18:33.620Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "DEC-004"
+  ],
+  "summary": "Decision DEC-004: Dual ESM + CJS packaging"
+}

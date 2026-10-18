@@ -1,0 +1,65 @@
+{
+  "decisions": [
+    {
+      "id": "DEC-001",
+      "title": "node:sqlite + JS KNN instead of native sqlite-vec",
+      "decision": "Use Node's built-in node:sqlite with FTS5 and JS cosine KNN behind a Store interface",
+      "rationale": "Zero native compilation; a native vec0 backend can be swapped in later",
+      "status": "active",
+      "requirementIds": [
+        "REQ-006"
+      ],
+      "alternatives": [
+        "sqlite-vec / vec0",
+        "better-sqlite3"
+      ],
+      "decidedAt": "2026-10-18T18:18:33.620Z",
+      "decidedBy": "claude-code"
+    },
+    {
+      "id": "DEC-002",
+      "title": "WASM tree-sitter grammars",
+      "decision": "Use web-tree-sitter with prebuilt tree-sitter-wasm grammars",
+      "rationale": "Works without a C/C++ toolchain and covers ~150 languages",
+      "status": "active",
+      "requirementIds": [
+        "REQ-001",
+        "REQ-006"
+      ],
+      "alternatives": [
+        "Native node-tree-sitter bindings"
+      ],
+      "decidedAt": "2026-10-18T18:18:33.620Z",
+      "decidedBy": "claude-code"
+    },
+    {
+      "id": "DEC-003",
+      "title": "RRF fusion for hybrid retrieval",
+      "decision": "Fuse vector, BM25 and graph rankings with Reciprocal Rank Fusion (k=60); reranker optional",
+      "rationale": "Simple, score-scale-free fusion that works without a trained reranker",
+      "status": "active",
+      "requirementIds": [
+        "REQ-003"
+      ],
+      "alternatives": [
+        "Weighted score blending",
+        "Mandatory cross-encoder reranker"
+      ],
+      "decidedAt": "2026-10-18T18:18:33.620Z",
+      "decidedBy": "claude-code"
+    },
+    {
+      "id": "DEC-004",
+      "title": "Dual ESM + CJS packaging",
+      "decision": "tsup emits ESM and CJS for ., ./cli and ./api",
+      "rationale": "CommonJS consumers such as Electron apps must be able to require the package (v0.1.1 fix)",
+      "status": "active",
+      "requirementIds": [
+        "REQ-005"
+      ],
+      "alternatives": [],
+      "decidedAt": "2026-10-18T18:18:33.620Z",
+      "decidedBy": "claude-code"
+    }
+  ]
+}

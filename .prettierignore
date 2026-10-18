@@ -5,3 +5,8 @@ pnpm-lock.yaml
 package-lock.json
 *.sqlite
 .codemap
+.northstar
+.agents
+.claude
+AGENTS.md
+CLAUDE.md

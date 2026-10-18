@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE5FKLW-31a38e",
+  "type": "task.created",
+  "at": "2026-10-18T18:18:33.620Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-001"
+  ],
+  "summary": "Task NS-001 created: Tree-sitter parser, cAST chunker and symbol extraction"
+}

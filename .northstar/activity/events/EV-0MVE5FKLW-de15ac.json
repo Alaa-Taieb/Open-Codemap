@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE5FKLW-de15ac",
+  "type": "task.created",
+  "at": "2026-10-18T18:18:33.620Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-003"
+  ],
+  "summary": "Task NS-003 created: SqliteStore (node:sqlite + FTS5 + JS KNN) and workspace registry"
+}

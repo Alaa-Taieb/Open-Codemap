@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE5FKLW-e8feb6",
+  "type": "feature.created",
+  "at": "2026-10-18T18:18:33.620Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "F-001"
+  ],
+  "summary": "Feature F-001 created: Parsing & chunking"
+}
