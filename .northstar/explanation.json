@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-18T18:26:47.531Z",
+  "generatedAt": "2026-10-18T18:49:58.928Z",
   "generatedBy": "claude-code",
-  "stateFingerprint": "31773d2cd8308d1720e41127185c969b83e876e3ab8b5d4120e294d8d5634238",
-  "headline": "Open-Codemap v0.1.1 is on npm and everything it ships has been checked and works; next is a small tidy-up of docs and release files.",
+  "stateFingerprint": "47ea0225dc38771624a474d8812acbb0e1621b8408f0acf647781cdbc188381a",
+  "headline": "Open-Codemap v0.1.1 is on npm, everything it ships is verified, and the docs and release files are now accurate; no further work is planned yet.",
   "overview": "Open-Codemap helps AI coding tools find the right piece of code in a repository. It splits code into functions and classes, indexes them in one local SQLite file, and answers both exact-name and plain-English questions by combining meaning, keyword and code-structure search. It runs locally and can be used as a TypeScript library, a command-line tool or a small web API.",
   "pillars": [
     {
@@ -25,7 +25,7 @@
   "sections": [
     {
       "title": "What works today",
-      "body": "Verified by running checks: parsing and chunking, incremental and live re-indexing, the SQLite store, all three embedders, hybrid retrieval, the CLI quickstart, the HTTP API, and the ESM + CommonJS build. All 99 tests pass, and the published npm 0.1.1 matches the code on main."
+      "body": "Verified by running checks: parsing and chunking, incremental and live re-indexing, the SQLite store, all three embedders, hybrid retrieval, the CLI quickstart, the HTTP API, and the ESM + CommonJS build. All 100 tests pass and the published npm 0.1.1 matches the code. One command, pnpm check, runs lint, typecheck, build and tests locally."
     },
     {
       "title": "Reported but not yet verified",
@@ -37,11 +37,11 @@
     },
     {
       "title": "Recent changes",
-      "body": "Project brought under Northstar on a new dev branch; the existing v0.1.1 features were verified."
+      "body": "README now states the real default embedder (mock); the already-released changeset and a stale changelog line were removed; a pnpm check gate was added. All on the dev branch."
     },
     {
       "title": "Next up",
-      "body": "Fix the README's default-embedder claim, fix the release-note package name and stale changelog line, and add one local command that runs every quality check."
+      "body": "No milestone planned beyond housekeeping. Candidates: a retrieval-quality benchmark, a native sqlite-vec backend, a reranker, or a precise call graph."
     }
   ]
 }

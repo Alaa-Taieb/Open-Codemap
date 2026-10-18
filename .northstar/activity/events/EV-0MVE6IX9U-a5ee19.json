@@ -1,0 +1,14 @@
+{
+  "id": "EV-0MVE6IX9U-a5ee19",
+  "type": "task.implemented",
+  "at": "2026-10-18T18:49:09.618Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-009",
+    "MS-002"
+  ],
+  "summary": "claude-code reported NS-009 implemented (NOT verified): README embedder section now states the CLI/config default is mock and Voyage is the recommended paid backend; removed the non-existent API-key flag mention; table notes updated.",
+  "data": {
+    "revision": "6aa346c6def259da02fe26d4a6e5492f5843b51f"
+  }
+}

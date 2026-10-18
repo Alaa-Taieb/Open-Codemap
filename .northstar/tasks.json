@@ -572,7 +572,7 @@
       ],
       "dependsOn": [],
       "priority": "low",
-      "status": "planned",
+      "status": "verified",
       "blockers": [],
       "planned": true,
       "acceptance": [
@@ -582,14 +582,42 @@
         }
       ],
       "requiresHumanApproval": false,
-      "commits": [],
-      "files": [],
-      "evidence": [],
+      "activeHarness": "claude-code",
+      "branch": "dev",
+      "workspace": "Open-Codemap",
+      "startedAt": "2026-10-18T18:47:34.977Z",
+      "commits": [
+        "f8f034b"
+      ],
+      "files": [
+        "README.md"
+      ],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:49:09.618Z",
+        "by": "claude-code",
+        "summary": "README embedder section now states the CLI/config default is mock and Voyage is the recommended paid backend; removed the non-existent API-key flag mention; table notes updated.",
+        "revision": "6aa346c6def259da02fe26d4a6e5492f5843b51f",
+        "tree": "7641ef73b8a0cfca78001ff1f6b259ed6f55098f"
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "automated",
+          "method": "doc-check",
+          "result": "pass",
+          "revision": "6aa346c6def259da02fe26d4a6e5492f5843b51f",
+          "tree": "7641ef73b8a0cfca78001ff1f6b259ed6f55098f",
+          "at": "2026-10-18T18:49:23.275Z",
+          "by": "claude-code",
+          "detail": "$ grep -q \"'mock',\" src/cli/commands/query.ts && grep -q 'default to the \\*\\*`mock`\\*\\* embedder' README.md && ! grep -qi 'default embedder is \\*\\*Voyage' README.md && ! grep -q 'Default paid backend' README.md\nshell: bash\nexit 0\n",
+          "criteria": []
+        }
+      ],
       "decisionIds": [],
       "provenance": "inferred",
       "createdAt": "2026-10-18T18:18:33.620Z",
       "createdBy": "claude-code",
-      "updatedAt": "2026-10-18T18:18:47.351Z"
+      "updatedAt": "2026-10-18T18:49:23.275Z"
     },
     {
       "id": "NS-010",
@@ -602,7 +630,7 @@
       ],
       "dependsOn": [],
       "priority": "low",
-      "status": "planned",
+      "status": "verified",
       "blockers": [],
       "planned": true,
       "acceptance": [
@@ -616,14 +644,43 @@
         }
       ],
       "requiresHumanApproval": false,
-      "commits": [],
-      "files": [],
-      "evidence": [],
+      "activeHarness": "claude-code",
+      "branch": "dev",
+      "workspace": "Open-Codemap",
+      "startedAt": "2026-10-18T18:47:59.425Z",
+      "commits": [
+        "6aa346c"
+      ],
+      "files": [
+        "CHANGELOG.md",
+        ".changeset/initial-release.md"
+      ],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:49:10.032Z",
+        "by": "claude-code",
+        "summary": "Deleted .changeset/initial-release.md (described the already-published 0.1.0 and used the wrong package name; would have caused a spurious bump) and moved its text into CHANGELOG as a 0.1.0 entry; removed stale 'Unreleased: Initial scaffold' entry.",
+        "revision": "6aa346c6def259da02fe26d4a6e5492f5843b51f",
+        "tree": "7641ef73b8a0cfca78001ff1f6b259ed6f55098f"
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "automated",
+          "method": "doc-check",
+          "result": "pass",
+          "revision": "6aa346c6def259da02fe26d4a6e5492f5843b51f",
+          "tree": "7641ef73b8a0cfca78001ff1f6b259ed6f55098f",
+          "at": "2026-10-18T18:49:23.740Z",
+          "by": "claude-code",
+          "detail": "$ ! grep -rlE \"^'open-codemap'\" .changeset && ! grep -q 'Initial scaffold' CHANGELOG.md && grep -q '^## 0.1.0' CHANGELOG.md && npx changeset status --since=HEAD >/dev/null 2>&1; ! ls .changeset/*.md | grep -v README.md\nshell: bash\nexit 0\n",
+          "criteria": []
+        }
+      ],
       "decisionIds": [],
       "provenance": "inferred",
       "createdAt": "2026-10-18T18:18:33.620Z",
       "createdBy": "claude-code",
-      "updatedAt": "2026-10-18T18:18:47.636Z"
+      "updatedAt": "2026-10-18T18:49:23.740Z"
     },
     {
       "id": "NS-011",
@@ -636,7 +693,7 @@
       ],
       "dependsOn": [],
       "priority": "medium",
-      "status": "planned",
+      "status": "verified",
       "blockers": [],
       "planned": true,
       "acceptance": [
@@ -646,14 +703,43 @@
         }
       ],
       "requiresHumanApproval": false,
-      "commits": [],
-      "files": [],
-      "evidence": [],
+      "activeHarness": "claude-code",
+      "branch": "dev",
+      "workspace": "Open-Codemap",
+      "startedAt": "2026-10-18T18:47:03.246Z",
+      "commits": [
+        "1308d11"
+      ],
+      "files": [
+        "package.json",
+        "CONTRIBUTING.md"
+      ],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:49:09.192Z",
+        "by": "claude-code",
+        "summary": "Added 'pnpm check' (lint -> typecheck -> build -> test; build before test so the CJS test runs). Documented in CONTRIBUTING and README; fixed 'lint = eslint + prettier' wording (lint is ESLint only). Prettier check left out: core.autocrlf checkouts flag 74 files for CRLF only.",
+        "revision": "6aa346c6def259da02fe26d4a6e5492f5843b51f",
+        "tree": "7641ef73b8a0cfca78001ff1f6b259ed6f55098f"
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "automated",
+          "method": "gate-script",
+          "result": "pass",
+          "revision": "6aa346c6def259da02fe26d4a6e5492f5843b51f",
+          "tree": "7641ef73b8a0cfca78001ff1f6b259ed6f55098f",
+          "at": "2026-10-18T18:49:10.400Z",
+          "by": "claude-code",
+          "detail": "$ grep -q '\"check\": \"pnpm lint && pnpm typecheck && pnpm build && pnpm test\"' package.json && pnpm check\nshell: bash\nexit 0\n114f41b9318bbb42a297435d3177cf51958f9f3dfba73c55f2a25d5ca8e (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-NCpNiw\\.codemap\\3e8f1114f41b9318bbb42a297435d3177cf51958f9f3dfba73c55f2a25d5ca8e.sqlite\n2026-10-18T18:49:22.375Z INFO [registry] opened workspace 15fc4b47fda569c27388d912454224adfe1bd06ea8fdac521506352e20abfdaa (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-BG1T53\\.codemap\\15fc4b47fda569c27388d912454224adfe1bd06ea8fdac521506352e20abfdaa.sqlite\n2026-10-18T18:49:22.501Z INFO [registry] opened workspace eb9153920382faaef0554aa8868d070de5de25c2b7930e21ebd0b6bdbb7ccaca (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-KTgfnO\\.codemap\\eb9153920382faaef0554aa8868d070de5de25c2b7930e21ebd0b6bdbb7ccaca.sqlite\n2026-10-18T18:49:22.533Z INFO [registry] rebuild requested: removed existing index at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-KTgfnO\\.codemap\\eb9153920382faaef0554aa8868d070de5de25c2b7930e21ebd0b6bdbb7ccaca.sqlite\n2026-10-18T18:49:22.605Z INFO [registry] opened workspace eb9153920382faaef0554aa8868d070de5de25c2b7930e21ebd0b6bdbb7ccaca (dims=64) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-KTgfnO\\.codemap\\eb9153920382faaef0554aa8868d070de5de25c2b7930e21ebd0b6bdbb7ccaca.sqlite\n2026-10-18T18:49:22.688Z INFO [registry] opened workspace 8971c0dd37500b246a2570274b130607b6351a0ffa3a68ae9da25f384dab17ac (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-B8sdcj\\.codemap\\8971c0dd37500b246a2570274b130607b6351a0ffa3a68ae9da25f384dab17ac.sqlite",
+          "criteria": []
+        }
+      ],
       "decisionIds": [],
       "provenance": "inferred",
       "createdAt": "2026-10-18T18:18:33.620Z",
       "createdBy": "claude-code",
-      "updatedAt": "2026-10-18T18:18:47.920Z"
+      "updatedAt": "2026-10-18T18:49:10.400Z"
     }
   ]
 }

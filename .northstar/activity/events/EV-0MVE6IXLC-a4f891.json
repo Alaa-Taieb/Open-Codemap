@@ -1,0 +1,14 @@
+{
+  "id": "EV-0MVE6IXLC-a4f891",
+  "type": "task.implemented",
+  "at": "2026-10-18T18:49:10.032Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-010",
+    "MS-002"
+  ],
+  "summary": "claude-code reported NS-010 implemented (NOT verified): Deleted .changeset/initial-release.md (described the already-published 0.1.0 and used the wrong package name; would have caused a spurious bump) and moved its text into CHANGELOG as a 0.1.0 entry; removed stale 'Unreleased: Initial scaffold' entry.",
+  "data": {
+    "revision": "6aa346c6def259da02fe26d4a6e5492f5843b51f"
+  }
+}

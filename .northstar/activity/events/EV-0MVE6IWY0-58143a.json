@@ -1,0 +1,14 @@
+{
+  "id": "EV-0MVE6IWY0-58143a",
+  "type": "task.implemented",
+  "at": "2026-10-18T18:49:09.192Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-011",
+    "MS-002"
+  ],
+  "summary": "claude-code reported NS-011 implemented (NOT verified): Added 'pnpm check' (lint -> typecheck -> build -> test; build before test so the CJS test runs). Documented in CONTRIBUTING and README; fixed 'lint = eslint + prettier' wording (lint is ESLint only). Prettier check left out: core.autocrlf checkouts flag 74 files for CRLF only.",
+  "data": {
+    "revision": "6aa346c6def259da02fe26d4a6e5492f5843b51f"
+  }
+}

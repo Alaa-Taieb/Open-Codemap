@@ -1,0 +1,11 @@
+{
+  "id": "EV-0MVE6J864-53495f",
+  "type": "task.verified",
+  "at": "2026-10-18T18:49:23.740Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-010",
+    "MS-002"
+  ],
+  "summary": "Task NS-010 verified: Fix changeset package name and stale CHANGELOG 'Unreleased' entry"
+}

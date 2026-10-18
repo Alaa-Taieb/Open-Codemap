@@ -44,17 +44,26 @@
         {
           "id": "X1",
           "text": "README matches CLI defaults",
-          "status": "unmet"
+          "status": "met",
+          "evidence": "$ grep -q \"'--embedder <kind>'.*'mock')\" src/cli/commands/index-command.ts && grep -q 'default to the \\*\\*`mock`\\*\\* embedder' README.md && ! grep -qi 'default embedder is \\*\\*Voyage' README.md\nshell: bash\nexit 0\n",
+          "by": "claude-code",
+          "at": "2026-10-18T18:49:49.351Z"
         },
         {
           "id": "X2",
           "text": "Changesets reference the real package name",
-          "status": "unmet"
+          "status": "met",
+          "evidence": "$ ! grep -rqE \"^'open-codemap'\" .changeset\nshell: bash\nexit 0\n",
+          "by": "claude-code",
+          "at": "2026-10-18T18:49:30.569Z"
         },
         {
           "id": "X3",
           "text": "One local command runs all quality gates",
-          "status": "unmet"
+          "status": "met",
+          "evidence": "$ pnpm check\nshell: bash\nexit 0\n4f963d7547f935e6a9d51338280c3c4ca855a69c084f126acf3d0adc442 (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-xlRciE\\.codemap\\64b184f963d7547f935e6a9d51338280c3c4ca855a69c084f126acf3d0adc442.sqlite\n2026-10-18T18:49:43.483Z INFO [registry] opened workspace 22e18c4d4c1f96a02a57ed5c0efd1bdd19ff26ebda8b280c6c25104152b8065b (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-jLftlR\\.codemap\\22e18c4d4c1f96a02a57ed5c0efd1bdd19ff26ebda8b280c6c25104152b8065b.sqlite\n2026-10-18T18:49:43.568Z INFO [registry] opened workspace d79ac129b0dbaa1ffe502f5623eaaa69247ca84b03a42f12aa9990b925aedb46 (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-nWzLgL\\.codemap\\d79ac129b0dbaa1ffe502f5623eaaa69247ca84b03a42f12aa9990b925aedb46.sqlite\n2026-10-18T18:49:43.596Z INFO [registry] rebuild requested: removed existing index at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-nWzLgL\\.codemap\\d79ac129b0dbaa1ffe502f5623eaaa69247ca84b03a42f12aa9990b925aedb46.sqlite\n2026-10-18T18:49:43.628Z INFO [registry] opened workspace d79ac129b0dbaa1ffe502f5623eaaa69247ca84b03a42f12aa9990b925aedb46 (dims=64) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-nWzLgL\\.codemap\\d79ac129b0dbaa1ffe502f5623eaaa69247ca84b03a42f12aa9990b925aedb46.sqlite\n2026-10-18T18:49:43.685Z INFO [registry] opened workspace 8c29d905dccd84d7fcfd4f132caf8efec44e46ba3a94d1e17e0a0f7165fc2260 (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-40p0sw\\.codemap\\8c29d905dccd84d7fcfd4f132caf8efec44e46ba3a94d1e17e0a0f7165fc2260.sqlite",
+          "by": "claude-code",
+          "at": "2026-10-18T18:49:43.961Z"
         }
       ],
       "dependsOn": [

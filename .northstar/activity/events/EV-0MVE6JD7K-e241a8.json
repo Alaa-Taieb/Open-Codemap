@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE6JD7K-e241a8",
+  "type": "milestone.criterion",
+  "at": "2026-10-18T18:49:30.272Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "MS-002"
+  ],
+  "summary": "MS-002 exit criterion X1 unmet: README matches CLI defaults"
+}
