@@ -1,0 +1,14 @@
+{
+  "id": "EV-0MVE5NKLZ-c98996",
+  "type": "task.implemented",
+  "at": "2026-10-18T18:24:46.871Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-002",
+    "MS-001"
+  ],
+  "summary": "claude-code reported NS-002 implemented (NOT verified): Existing v0.1.1 functionality (adopted, implemented in fcb1eab). Snapshot refreshed after cb5858d, which only added Northstar adapter/state files and .prettierignore entries; no source changes.",
+  "data": {
+    "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c"
+  }
+}

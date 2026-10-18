@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE6JNRT-6d4ca3",
+  "type": "milestone.criterion",
+  "at": "2026-10-18T18:49:43.961Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "MS-002"
+  ],
+  "summary": "MS-002 exit criterion X3 met: One local command runs all quality gates"
+}

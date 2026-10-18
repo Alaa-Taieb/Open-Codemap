@@ -1,0 +1,11 @@
+{
+  "id": "EV-0MVE5NZHT-f76e52",
+  "type": "task.verified",
+  "at": "2026-10-18T18:25:06.161Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-003",
+    "MS-001"
+  ],
+  "summary": "Task NS-003 verified: SqliteStore (node:sqlite + FTS5 + JS KNN) and workspace registry"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "EV-0MVE5O3NV-fa3c6e",
+  "type": "task.verified",
+  "at": "2026-10-18T18:25:11.563Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-007",
+    "MS-001"
+  ],
+  "summary": "Task NS-007 verified: Fastify HTTP API with background index jobs"
+}

@@ -1,0 +1,194 @@
+{
+  "version": 1,
+  "milestones": [
+    {
+      "id": "MS-001",
+      "title": "MVP v0.1 (existing)",
+      "goal": "Record and verify the shipped v0.1.1: indexer, retriever, embedders, CLI, API, library packaging.",
+      "order": 0,
+      "exitCriteria": [
+        {
+          "id": "X1",
+          "text": "All tests pass locally",
+          "status": "met",
+          "evidence": "$ pnpm build && pnpm test\nshell: bash\nexit 0\nd57c7d019db31d3e2b3ac8ba6cff99ed7bb2252aaa5a6e4d010d7aa3904 (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-TEBMx6\\.codemap\\50fe8d57c7d019db31d3e2b3ac8ba6cff99ed7bb2252aaa5a6e4d010d7aa3904.sqlite\n2026-10-18T18:26:12.469Z INFO [registry] opened workspace 8d8a4c5953cdc0dbd57c442570b2193394be83a856422c8c2fbd1c39a0ee9dab (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-jeSp4P\\.codemap\\8d8a4c5953cdc0dbd57c442570b2193394be83a856422c8c2fbd1c39a0ee9dab.sqlite\n2026-10-18T18:26:12.552Z INFO [registry] opened workspace f1e7adb76bf3b33998906e130b112a66c06a4465074b4059aef8c1cd6b3d7449 (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-KxBqG3\\.codemap\\f1e7adb76bf3b33998906e130b112a66c06a4465074b4059aef8c1cd6b3d7449.sqlite\n2026-10-18T18:26:12.577Z INFO [registry] rebuild requested: removed existing index at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-KxBqG3\\.codemap\\f1e7adb76bf3b33998906e130b112a66c06a4465074b4059aef8c1cd6b3d7449.sqlite\n2026-10-18T18:26:12.606Z INFO [registry] opened workspace f1e7adb76bf3b33998906e130b112a66c06a4465074b4059aef8c1cd6b3d7449 (dims=64) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-KxBqG3\\.codemap\\f1e7adb76bf3b33998906e130b112a66c06a4465074b4059aef8c1cd6b3d7449.sqlite\n2026-10-18T18:26:12.664Z INFO [registry] opened workspace a1c01920a436a1f49bf2938a265c987e76ad77f59b6a14e4b7b6f21c90966499 (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-g0XiSX\\.codemap\\a1c01920a436a1f49bf2938a265c987e76ad77f59b6a14e4b7b6f21c90966499.sqlite",
+          "by": "claude-code",
+          "at": "2026-10-18T18:26:12.904Z"
+        },
+        {
+          "id": "X2",
+          "text": "Build produces ESM + CJS outputs",
+          "status": "met",
+          "evidence": "$ pnpm build && for f in index cli/index api/index; do test -f dist/$f.js && test -f dist/$f.cjs && test -f dist/$f.d.ts || exit 1; done && node -e \"require('./dist/index.cjs')\" && node --input-type=module -e \"await import('./dist/index.js')\"\nshell: bash\nexit 0\nist\\cli\\index.d.ts         \u001b[22m\u001b[32m20.00 B\u001b[39m\n\u001b[32mDTS\u001b[39m \u001b[1mdist\\api\\index.d.ts         \u001b[22m\u001b[32m1.65 KB\u001b[39m\n\u001b[32mDTS\u001b[39m \u001b[1mdist\\index.d.ts             \u001b[22m\u001b[32m15.35 KB\u001b[39m\n\u001b[32mDTS\u001b[39m \u001b[1mdist\\indexer-BdHXZeWM.d.ts  \u001b[22m\u001b[32m15.55 KB\u001b[39m\n\u001b[32mDTS\u001b[39m \u001b[1mdist\\cli\\index.d.cts        \u001b[22m\u001b[32m20.00 B\u001b[39m\n\u001b[32mDTS\u001b[39m \u001b[1mdist\\api\\index.d.cts        \u001b[22m\u001b[32m1.65 KB\u001b[39m\n\u001b[32mDTS\u001b[39m \u001b[1mdist\\index.d.cts            \u001b[22m\u001b[32m15.35 KB\u001b[39m\n\u001b[32mDTS\u001b[39m \u001b[1mdist\\indexer-BdHXZeWM.d.cts \u001b[22m\u001b[32m15.55 KB\u001b[39m\n\n\u001b[43m\u001b[30m WARN \u001b[39m\u001b[49m \u001b[33m▲ \u001b[43;33m[\u001b[43;30mWARNING\u001b[43;33m]\u001b[0m \u001b[1m\"import.meta\" is not available with the \"cjs\" output format and will be empty\u001b[0m [empty-import-meta]\n\n    src/core/parser/grammars.ts:27:75:\n\u001b[37m      27 │ ...typeof __filename !== 'undefined' ? __filename : \u001b[32mimport.meta\u001b[37m.url);\n         ╵                                                     \u001b[32m~~~~~~~~~~~\u001b[0m\n\n  You need to set the output format to \"esm\" for \"import.meta\" to work correctly.\n\n\n\n\n\u001b[43m\u001b[30m WARN \u001b[39m\u001b[49m \u001b[33m▲ \u001b[43;33m[\u001b[43;30mWARNING\u001b[43;33m]\u001b[0m \u001b[1m\"import.meta\" is not available with the \"cjs\" output format and will be empty\u001b[0m [empty-import-meta]\n\n    src/core/store/sqlite.ts:33:79:\n\u001b[37m      33 │ ...typeof __filename !== 'undefined' ? __filename : \u001b[32mimport.meta\u001b[37m.url);\n         ╵                                                     \u001b[32m~~~~~~~~~~~\u001b[0m\n\n  You need to set the output format to \"esm\" for \"import.meta\" to work correctly.",
+          "by": "claude-code",
+          "at": "2026-10-18T18:26:16.980Z"
+        },
+        {
+          "id": "X3",
+          "text": "Published 0.1.1 matches main",
+          "status": "met",
+          "evidence": "$ pnpm build >/dev/null && d=$(mktemp -d) && (cd $d && npm pack @alaa-taieb/open-codemap@0.1.1 --silent >/dev/null && tar xzf *.tgz) && diff -rq -x '*.map' $d/package/dist dist && [ \"$(node -p \"require('./package.json').version\")\" = 0.1.1 ]; s=$?; rm -rf $d; exit $s\nshell: bash\nexit 0\n\u001b[43m\u001b[30m WARN \u001b[39m\u001b[49m \u001b[33m▲ \u001b[43;33m[\u001b[43;30mWARNING\u001b[43;33m]\u001b[0m \u001b[1m\"import.meta\" is not available with the \"cjs\" output format and will be empty\u001b[0m [empty-import-meta]\n\n    src/core/parser/grammars.ts:27:75:\n\u001b[37m      27 │ ...typeof __filename !== 'undefined' ? __filename : \u001b[32mimport.meta\u001b[37m.url);\n         ╵                                                     \u001b[32m~~~~~~~~~~~\u001b[0m\n\n  You need to set the output format to \"esm\" for \"import.meta\" to work correctly.\n\n\n\n\n\u001b[43m\u001b[30m WARN \u001b[39m\u001b[49m \u001b[33m▲ \u001b[43;33m[\u001b[43;30mWARNING\u001b[43;33m]\u001b[0m \u001b[1m\"import.meta\" is not available with the \"cjs\" output format and will be empty\u001b[0m [empty-import-meta]\n\n    src/core/store/sqlite.ts:33:79:\n\u001b[37m      33 │ ...typeof __filename !== 'undefined' ? __filename : \u001b[32mimport.meta\u001b[37m.url);\n         ╵                                                     \u001b[32m~~~~~~~~~~~\u001b[0m\n\n  You need to set the output format to \"esm\" for \"import.meta\" to work correctly.",
+          "by": "claude-code",
+          "at": "2026-10-18T18:26:22.382Z"
+        }
+      ],
+      "dependsOn": [],
+      "provenance": "stated"
+    },
+    {
+      "id": "MS-002",
+      "title": "Housekeeping & release hygiene",
+      "goal": "Fix inconsistencies found during adoption so docs, changesets and gates are trustworthy.",
+      "order": 1,
+      "exitCriteria": [
+        {
+          "id": "X1",
+          "text": "README matches CLI defaults",
+          "status": "met",
+          "evidence": "$ grep -q \"'--embedder <kind>'.*'mock')\" src/cli/commands/index-command.ts && grep -q 'default to the \\*\\*`mock`\\*\\* embedder' README.md && ! grep -qi 'default embedder is \\*\\*Voyage' README.md\nshell: bash\nexit 0\n",
+          "by": "claude-code",
+          "at": "2026-10-18T18:49:49.351Z"
+        },
+        {
+          "id": "X2",
+          "text": "Changesets reference the real package name",
+          "status": "met",
+          "evidence": "$ ! grep -rqE \"^'open-codemap'\" .changeset\nshell: bash\nexit 0\n",
+          "by": "claude-code",
+          "at": "2026-10-18T18:49:30.569Z"
+        },
+        {
+          "id": "X3",
+          "text": "One local command runs all quality gates",
+          "status": "met",
+          "evidence": "$ pnpm check\nshell: bash\nexit 0\n4f963d7547f935e6a9d51338280c3c4ca855a69c084f126acf3d0adc442 (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-xlRciE\\.codemap\\64b184f963d7547f935e6a9d51338280c3c4ca855a69c084f126acf3d0adc442.sqlite\n2026-10-18T18:49:43.483Z INFO [registry] opened workspace 22e18c4d4c1f96a02a57ed5c0efd1bdd19ff26ebda8b280c6c25104152b8065b (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-jLftlR\\.codemap\\22e18c4d4c1f96a02a57ed5c0efd1bdd19ff26ebda8b280c6c25104152b8065b.sqlite\n2026-10-18T18:49:43.568Z INFO [registry] opened workspace d79ac129b0dbaa1ffe502f5623eaaa69247ca84b03a42f12aa9990b925aedb46 (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-nWzLgL\\.codemap\\d79ac129b0dbaa1ffe502f5623eaaa69247ca84b03a42f12aa9990b925aedb46.sqlite\n2026-10-18T18:49:43.596Z INFO [registry] rebuild requested: removed existing index at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-nWzLgL\\.codemap\\d79ac129b0dbaa1ffe502f5623eaaa69247ca84b03a42f12aa9990b925aedb46.sqlite\n2026-10-18T18:49:43.628Z INFO [registry] opened workspace d79ac129b0dbaa1ffe502f5623eaaa69247ca84b03a42f12aa9990b925aedb46 (dims=64) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-nWzLgL\\.codemap\\d79ac129b0dbaa1ffe502f5623eaaa69247ca84b03a42f12aa9990b925aedb46.sqlite\n2026-10-18T18:49:43.685Z INFO [registry] opened workspace 8c29d905dccd84d7fcfd4f132caf8efec44e46ba3a94d1e17e0a0f7165fc2260 (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-40p0sw\\.codemap\\8c29d905dccd84d7fcfd4f132caf8efec44e46ba3a94d1e17e0a0f7165fc2260.sqlite",
+          "by": "claude-code",
+          "at": "2026-10-18T18:49:43.961Z"
+        }
+      ],
+      "dependsOn": [
+        "MS-001"
+      ],
+      "provenance": "inferred"
+    }
+  ],
+  "features": [
+    {
+      "id": "F-001",
+      "title": "Parsing & chunking",
+      "description": "",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-001"
+      ],
+      "dependsOn": [],
+      "provenance": "stated",
+      "artifacts": []
+    },
+    {
+      "id": "F-002",
+      "title": "Incremental indexer + watch",
+      "description": "",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-002"
+      ],
+      "dependsOn": [],
+      "provenance": "stated",
+      "artifacts": []
+    },
+    {
+      "id": "F-003",
+      "title": "SQLite store + workspace registry",
+      "description": "",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-006"
+      ],
+      "dependsOn": [],
+      "provenance": "stated",
+      "artifacts": []
+    },
+    {
+      "id": "F-004",
+      "title": "Embedders",
+      "description": "",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-004"
+      ],
+      "dependsOn": [],
+      "provenance": "stated",
+      "artifacts": []
+    },
+    {
+      "id": "F-005",
+      "title": "Hybrid retriever",
+      "description": "",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-003"
+      ],
+      "dependsOn": [],
+      "provenance": "stated",
+      "artifacts": []
+    },
+    {
+      "id": "F-006",
+      "title": "CLI",
+      "description": "",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-005"
+      ],
+      "dependsOn": [],
+      "provenance": "stated",
+      "artifacts": []
+    },
+    {
+      "id": "F-007",
+      "title": "HTTP API",
+      "description": "",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-005"
+      ],
+      "dependsOn": [],
+      "provenance": "stated",
+      "artifacts": []
+    },
+    {
+      "id": "F-008",
+      "title": "Library packaging (ESM + CJS)",
+      "description": "",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-005",
+        "REQ-006"
+      ],
+      "dependsOn": [],
+      "provenance": "stated",
+      "artifacts": []
+    },
+    {
+      "id": "F-009",
+      "title": "Docs & release hygiene",
+      "description": "",
+      "milestoneId": "MS-002",
+      "requirementIds": [
+        "REQ-007"
+      ],
+      "dependsOn": [],
+      "provenance": "inferred",
+      "artifacts": []
+    }
+  ],
+  "history": [
+    {
+      "version": 1,
+      "at": "2026-10-18T18:16:20.040Z",
+      "actor": "claude-code",
+      "reason": "Project initialized"
+    }
+  ]
+}

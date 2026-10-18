@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE5FKLW-b6cc1e",
+  "type": "milestone.created",
+  "at": "2026-10-18T18:18:33.620Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "MS-001"
+  ],
+  "summary": "Milestone MS-001 created: MVP v0.1 (existing)"
+}

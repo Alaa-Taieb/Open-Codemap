@@ -1,0 +1,745 @@
+{
+  "tasks": [
+    {
+      "id": "NS-001",
+      "title": "Tree-sitter parser, cAST chunker and symbol extraction",
+      "description": "",
+      "featureId": "F-001",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-001"
+      ],
+      "dependsOn": [],
+      "priority": "high",
+      "status": "verified",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "Parser, chunker and symbol unit tests pass"
+        },
+        {
+          "id": "AC2",
+          "text": "Grammar wasm resolves when bundled (grammar-resolution test)"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "commits": [
+        "fcb1eab"
+      ],
+      "files": [],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:24:46.525Z",
+        "by": "claude-code",
+        "summary": "Existing v0.1.1 functionality (adopted, implemented in fcb1eab). Snapshot refreshed after cb5858d, which only added Northstar adapter/state files and .prettierignore entries; no source changes.",
+        "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+        "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef"
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "automated",
+          "method": "unit-tests",
+          "result": "pass",
+          "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+          "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef",
+          "at": "2026-10-18T18:24:17.616Z",
+          "by": "claude-code",
+          "detail": "$ pnpm exec vitest run test/unit/parser.test.ts test/unit/chunker.test.ts test/unit/symbols.test.ts test/unit/grammar-resolution.test.ts\nshell: bash\nexit 0\n\u001b[1m\u001b[7m\u001b[36m RUN \u001b[39m\u001b[27m\u001b[22m \u001b[36mv2.1.9 \u001b[39m\u001b[90mC:/Users/LITE/Open-Codemap\u001b[39m\n\n \u001b[32m✓\u001b[39m test/unit/chunker.test.ts \u001b[2m(\u001b[22m\u001b[2m6 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[90m 29\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/unit/symbols.test.ts \u001b[2m(\u001b[22m\u001b[2m3 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[90m 10\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/unit/parser.test.ts \u001b[2m(\u001b[22m\u001b[2m5 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[90m 7\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/unit/grammar-resolution.test.ts \u001b[2m(\u001b[22m\u001b[2m3 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[90m 2\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m4 passed\u001b[39m\u001b[22m\u001b[90m (4)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m17 passed\u001b[39m\u001b[22m\u001b[90m (17)\u001b[39m\n\u001b[2m   Start at \u001b[22m 19:24:18\n\u001b[2m   Duration \u001b[22m 352ms\u001b[2m (transform 55ms, setup 0ms, collect 98ms, tests 47ms, environment 0ms, prepare 76ms)\u001b[22m",
+          "criteria": [
+            "AC1",
+            "AC2"
+          ]
+        },
+        {
+          "id": "E2",
+          "kind": "automated",
+          "method": "unit-tests",
+          "result": "pass",
+          "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+          "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef",
+          "at": "2026-10-18T18:25:00.960Z",
+          "by": "claude-code",
+          "detail": "$ pnpm exec vitest run test/unit/parser.test.ts test/unit/chunker.test.ts test/unit/symbols.test.ts test/unit/grammar-resolution.test.ts\nshell: bash\nexit 0\n\u001b[1m\u001b[7m\u001b[36m RUN \u001b[39m\u001b[27m\u001b[22m \u001b[36mv2.1.9 \u001b[39m\u001b[90mC:/Users/LITE/Open-Codemap\u001b[39m\n\n \u001b[32m✓\u001b[39m test/unit/chunker.test.ts \u001b[2m(\u001b[22m\u001b[2m6 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[90m 33\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/unit/symbols.test.ts \u001b[2m(\u001b[22m\u001b[2m3 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[90m 7\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/unit/parser.test.ts \u001b[2m(\u001b[22m\u001b[2m5 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[90m 8\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/unit/grammar-resolution.test.ts \u001b[2m(\u001b[22m\u001b[2m3 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[90m 2\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m4 passed\u001b[39m\u001b[22m\u001b[90m (4)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m17 passed\u001b[39m\u001b[22m\u001b[90m (17)\u001b[39m\n\u001b[2m   Start at \u001b[22m 19:25:01\n\u001b[2m   Duration \u001b[22m 418ms\u001b[2m (transform 65ms, setup 0ms, collect 113ms, tests 49ms, environment 0ms, prepare 90ms)\u001b[22m",
+          "criteria": [
+            "AC1",
+            "AC2"
+          ]
+        }
+      ],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:25:00.960Z"
+    },
+    {
+      "id": "NS-002",
+      "title": "Incremental indexer with content-hash fix-up and watch mode",
+      "description": "",
+      "featureId": "F-002",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-002"
+      ],
+      "dependsOn": [],
+      "priority": "high",
+      "status": "verified",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "Indexer integration test passes"
+        },
+        {
+          "id": "AC2",
+          "text": "Watch integration test passes"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "commits": [
+        "fcb1eab"
+      ],
+      "files": [],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:24:46.871Z",
+        "by": "claude-code",
+        "summary": "Existing v0.1.1 functionality (adopted, implemented in fcb1eab). Snapshot refreshed after cb5858d, which only added Northstar adapter/state files and .prettierignore entries; no source changes.",
+        "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+        "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef"
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "automated",
+          "method": "integration-tests",
+          "result": "pass",
+          "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+          "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef",
+          "at": "2026-10-18T18:24:19.115Z",
+          "by": "claude-code",
+          "detail": "$ pnpm exec vitest run test/integration/indexer.test.ts test/integration/watch.test.ts\nshell: bash\nexit 0\n31d35e714569 (dims=16) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-watch-RhfC8O\\repo\\.codemap\\116bb5dccedfed09c00571d2e8967af62789da4a8eb09357440531d35e714569.sqlite\n2026-10-18T18:24:20.897Z INFO [watch] re-indexing (trailing) for C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-watch-RhfC8O\\repo\n2026-10-18T18:24:20.937Z INFO [registry] opened workspace 116bb5dccedfed09c00571d2e8967af62789da4a8eb09357440531d35e714569 (dims=16) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-watch-RhfC8O\\repo\\.codemap\\116bb5dccedfed09c00571d2e8967af62789da4a8eb09357440531d35e714569.sqlite\n2026-10-18T18:24:21.039Z INFO [watch] re-indexing (initial) for C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-watch-PW2B1Q\\repo\n2026-10-18T18:24:21.100Z INFO [registry] opened workspace f2327c2d812316fdbce2dd0229cf72be70bb082e583d661e0533b3af92d6ff62 (dims=16) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-watch-PW2B1Q\\repo\\.codemap\\f2327c2d812316fdbce2dd0229cf72be70bb082e583d661e0533b3af92d6ff62.sqlite\n2026-10-18T18:24:21.413Z INFO [watch] re-indexing (change) for C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-watch-PW2B1Q\\repo\n2026-10-18T18:24:21.442Z INFO [registry] opened workspace f2327c2d812316fdbce2dd0229cf72be70bb082e583d661e0533b3af92d6ff62 (dims=16) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-watch-PW2B1Q\\repo\\.codemap\\f2327c2d812316fdbce2dd0229cf72be70bb082e583d661e0533b3af92d6ff62.sqlite\n2026-10-18T18:24:22.042Z INFO [indexer] no changes for c9fc41d38862af8263469815ea26d02a0b15e078ac64c110811d320022c0f2c8; nothing to index",
+          "criteria": [
+            "AC1",
+            "AC2"
+          ]
+        },
+        {
+          "id": "E2",
+          "kind": "automated",
+          "method": "integration-tests",
+          "result": "pass",
+          "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+          "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef",
+          "at": "2026-10-18T18:25:02.585Z",
+          "by": "claude-code",
+          "detail": "$ pnpm exec vitest run test/integration/indexer.test.ts test/integration/watch.test.ts\nshell: bash\nexit 0\nb79665ede616 (dims=16) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-watch-wLTr27\\repo\\.codemap\\2dde664b56a7450503fb018d696da7a1b9f8059351a92a76758db79665ede616.sqlite\n2026-10-18T18:25:04.419Z INFO [watch] re-indexing (trailing) for C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-watch-wLTr27\\repo\n2026-10-18T18:25:04.447Z INFO [registry] opened workspace 2dde664b56a7450503fb018d696da7a1b9f8059351a92a76758db79665ede616 (dims=16) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-watch-wLTr27\\repo\\.codemap\\2dde664b56a7450503fb018d696da7a1b9f8059351a92a76758db79665ede616.sqlite\n2026-10-18T18:25:04.525Z INFO [watch] re-indexing (initial) for C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-watch-CbNODL\\repo\n2026-10-18T18:25:04.585Z INFO [registry] opened workspace 4c900f96de5da9d679360c4bedbced68c8a46d0b9a8b7fc466b9d8e7d1a9e645 (dims=16) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-watch-CbNODL\\repo\\.codemap\\4c900f96de5da9d679360c4bedbced68c8a46d0b9a8b7fc466b9d8e7d1a9e645.sqlite\n2026-10-18T18:25:04.907Z INFO [watch] re-indexing (change) for C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-watch-CbNODL\\repo\n2026-10-18T18:25:04.935Z INFO [registry] opened workspace 4c900f96de5da9d679360c4bedbced68c8a46d0b9a8b7fc466b9d8e7d1a9e645 (dims=16) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-watch-CbNODL\\repo\\.codemap\\4c900f96de5da9d679360c4bedbced68c8a46d0b9a8b7fc466b9d8e7d1a9e645.sqlite\n2026-10-18T18:25:05.522Z INFO [indexer] no changes for 33a3ee6ce744b65fc922706711127136ea457567b875a68e52662ea4e1539835; nothing to index",
+          "criteria": [
+            "AC1",
+            "AC2"
+          ]
+        }
+      ],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:25:02.585Z"
+    },
+    {
+      "id": "NS-003",
+      "title": "SqliteStore (node:sqlite + FTS5 + JS KNN) and workspace registry",
+      "description": "",
+      "featureId": "F-003",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-006"
+      ],
+      "dependsOn": [],
+      "priority": "high",
+      "status": "verified",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "Store, store-interface and registry unit tests pass"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "commits": [
+        "fcb1eab"
+      ],
+      "files": [],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:24:47.249Z",
+        "by": "claude-code",
+        "summary": "Existing v0.1.1 functionality (adopted, implemented in fcb1eab). Snapshot refreshed after cb5858d, which only added Northstar adapter/state files and .prettierignore entries; no source changes.",
+        "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+        "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef"
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "automated",
+          "method": "unit-tests",
+          "result": "pass",
+          "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+          "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef",
+          "at": "2026-10-18T18:24:22.833Z",
+          "by": "claude-code",
+          "detail": "$ pnpm exec vitest run test/unit/store.test.ts test/unit/store-interface.test.ts test/unit/registry.test.ts\nshell: bash\nexit 0\nd5c1410f8ed47e891510414909c7e0105a3d23ef34926881b85c5efb6df (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-9RjNaM\\.codemap\\d04a2d5c1410f8ed47e891510414909c7e0105a3d23ef34926881b85c5efb6df.sqlite\n2026-10-18T18:24:24.183Z INFO [registry] opened workspace baef85a70ba434f2073da5e51fa4c03060de1e72b2076482a82a76205c17501d (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-7kWuVw\\.codemap\\baef85a70ba434f2073da5e51fa4c03060de1e72b2076482a82a76205c17501d.sqlite\n2026-10-18T18:24:24.262Z INFO [registry] opened workspace 7807e5b3acdf0b2a80e8eff40adb54b065f51452131d62bc3a926314554ce775 (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-3GolTa\\.codemap\\7807e5b3acdf0b2a80e8eff40adb54b065f51452131d62bc3a926314554ce775.sqlite\n2026-10-18T18:24:24.293Z INFO [registry] rebuild requested: removed existing index at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-3GolTa\\.codemap\\7807e5b3acdf0b2a80e8eff40adb54b065f51452131d62bc3a926314554ce775.sqlite\n2026-10-18T18:24:24.325Z INFO [registry] opened workspace 7807e5b3acdf0b2a80e8eff40adb54b065f51452131d62bc3a926314554ce775 (dims=64) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-3GolTa\\.codemap\\7807e5b3acdf0b2a80e8eff40adb54b065f51452131d62bc3a926314554ce775.sqlite\n2026-10-18T18:24:24.383Z INFO [registry] opened workspace dcdcd91449fbe0c3e605929f470d424ef061a3ac5f0c2f5ab1c79cda44be1989 (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-thzeqO\\.codemap\\dcdcd91449fbe0c3e605929f470d424ef061a3ac5f0c2f5ab1c79cda44be1989.sqlite",
+          "criteria": [
+            "AC1"
+          ]
+        },
+        {
+          "id": "E2",
+          "kind": "automated",
+          "method": "unit-tests",
+          "result": "pass",
+          "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+          "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef",
+          "at": "2026-10-18T18:25:06.161Z",
+          "by": "claude-code",
+          "detail": "$ pnpm exec vitest run test/unit/store.test.ts test/unit/store-interface.test.ts test/unit/registry.test.ts\nshell: bash\nexit 0\nd93b62864d4a291eeeb12c0b098ae0fa6590b6fc8c0ded22de5ce9aff53 (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-Jgz8I9\\.codemap\\cd5dfd93b62864d4a291eeeb12c0b098ae0fa6590b6fc8c0ded22de5ce9aff53.sqlite\n2026-10-18T18:25:07.461Z INFO [registry] opened workspace bff58f4e41a109b49898c89b10d756c3b66bfb3a92a20e799f33228b4d71e95c (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-LBW9SP\\.codemap\\bff58f4e41a109b49898c89b10d756c3b66bfb3a92a20e799f33228b4d71e95c.sqlite\n2026-10-18T18:25:07.548Z INFO [registry] opened workspace c91ca9294864706a4355b97e085a980c7212893c8a8241e60ce54d2842930903 (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-BO0rci\\.codemap\\c91ca9294864706a4355b97e085a980c7212893c8a8241e60ce54d2842930903.sqlite\n2026-10-18T18:25:07.576Z INFO [registry] rebuild requested: removed existing index at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-BO0rci\\.codemap\\c91ca9294864706a4355b97e085a980c7212893c8a8241e60ce54d2842930903.sqlite\n2026-10-18T18:25:07.609Z INFO [registry] opened workspace c91ca9294864706a4355b97e085a980c7212893c8a8241e60ce54d2842930903 (dims=64) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-BO0rci\\.codemap\\c91ca9294864706a4355b97e085a980c7212893c8a8241e60ce54d2842930903.sqlite\n2026-10-18T18:25:07.825Z INFO [registry] opened workspace f30999b5dd8d18728c17287beb6f3a0d20f034700b1eb8ec82f7d2150a0be3c9 (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-t8FNi7\\.codemap\\f30999b5dd8d18728c17287beb6f3a0d20f034700b1eb8ec82f7d2150a0be3c9.sqlite",
+          "criteria": [
+            "AC1"
+          ]
+        }
+      ],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:25:06.161Z"
+    },
+    {
+      "id": "NS-004",
+      "title": "Mock, Voyage and Jina embedders with batching",
+      "description": "",
+      "featureId": "F-004",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-004"
+      ],
+      "dependsOn": [],
+      "priority": "high",
+      "status": "verified",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "Embedder unit tests pass (mock, voyage, embed)"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "commits": [
+        "fcb1eab"
+      ],
+      "files": [],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:24:47.577Z",
+        "by": "claude-code",
+        "summary": "Existing v0.1.1 functionality (adopted, implemented in fcb1eab). Snapshot refreshed after cb5858d, which only added Northstar adapter/state files and .prettierignore entries; no source changes.",
+        "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+        "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef"
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "automated",
+          "method": "unit-tests",
+          "result": "pass",
+          "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+          "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef",
+          "at": "2026-10-18T18:24:24.751Z",
+          "by": "claude-code",
+          "detail": "$ pnpm exec vitest run test/unit/embed-mock.test.ts test/unit/voyage.test.ts test/unit/embed.test.ts\nshell: bash\nexit 0\n\u001b[1m\u001b[7m\u001b[36m RUN \u001b[39m\u001b[27m\u001b[22m \u001b[36mv2.1.9 \u001b[39m\u001b[90mC:/Users/LITE/Open-Codemap\u001b[39m\n\n \u001b[32m✓\u001b[39m test/unit/voyage.test.ts \u001b[2m(\u001b[22m\u001b[2m3 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[90m 5\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/unit/embed-mock.test.ts \u001b[2m(\u001b[22m\u001b[2m4 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[90m 2\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/unit/embed.test.ts \u001b[2m(\u001b[22m\u001b[2m5 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[90m 1\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m3 passed\u001b[39m\u001b[22m\u001b[90m (3)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m12 passed\u001b[39m\u001b[22m\u001b[90m (12)\u001b[39m\n\u001b[2m   Start at \u001b[22m 19:24:25\n\u001b[2m   Duration \u001b[22m 268ms\u001b[2m (transform 42ms, setup 0ms, collect 61ms, tests 8ms, environment 0ms, prepare 75ms)\u001b[22m",
+          "criteria": [
+            "AC1"
+          ]
+        },
+        {
+          "id": "E2",
+          "kind": "automated",
+          "method": "unit-tests",
+          "result": "pass",
+          "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+          "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef",
+          "at": "2026-10-18T18:25:08.159Z",
+          "by": "claude-code",
+          "detail": "$ pnpm exec vitest run test/unit/embed-mock.test.ts test/unit/voyage.test.ts test/unit/embed.test.ts\nshell: bash\nexit 0\n\u001b[1m\u001b[7m\u001b[36m RUN \u001b[39m\u001b[27m\u001b[22m \u001b[36mv2.1.9 \u001b[39m\u001b[90mC:/Users/LITE/Open-Codemap\u001b[39m\n\n \u001b[32m✓\u001b[39m test/unit/voyage.test.ts \u001b[2m(\u001b[22m\u001b[2m3 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[90m 5\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/unit/embed-mock.test.ts \u001b[2m(\u001b[22m\u001b[2m4 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[90m 2\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/unit/embed.test.ts \u001b[2m(\u001b[22m\u001b[2m5 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[90m 1\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m3 passed\u001b[39m\u001b[22m\u001b[90m (3)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m12 passed\u001b[39m\u001b[22m\u001b[90m (12)\u001b[39m\n\u001b[2m   Start at \u001b[22m 19:25:09\n\u001b[2m   Duration \u001b[22m 275ms\u001b[2m (transform 45ms, setup 0ms, collect 65ms, tests 8ms, environment 0ms, prepare 78ms)\u001b[22m",
+          "criteria": [
+            "AC1"
+          ]
+        }
+      ],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:25:08.159Z"
+    },
+    {
+      "id": "NS-005",
+      "title": "Hybrid retriever with RRF, graph expansion and fallback",
+      "description": "",
+      "featureId": "F-005",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-003"
+      ],
+      "dependsOn": [],
+      "priority": "high",
+      "status": "verified",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "Retriever integration test passes"
+        },
+        {
+          "id": "AC2",
+          "text": "Retriever API-shape test passes (repoId required, mode is a result field)"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "commits": [
+        "fcb1eab"
+      ],
+      "files": [],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:24:47.927Z",
+        "by": "claude-code",
+        "summary": "Existing v0.1.1 functionality (adopted, implemented in fcb1eab). Snapshot refreshed after cb5858d, which only added Northstar adapter/state files and .prettierignore entries; no source changes.",
+        "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+        "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef"
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "automated",
+          "method": "integration-tests",
+          "result": "pass",
+          "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+          "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef",
+          "at": "2026-10-18T18:24:26.157Z",
+          "by": "claude-code",
+          "detail": "$ pnpm exec vitest run test/integration/retriever.test.ts test/unit/retriever-api-shape.test.ts\nshell: bash\nexit 0\n\u001b[1m\u001b[7m\u001b[36m RUN \u001b[39m\u001b[27m\u001b[22m \u001b[36mv2.1.9 \u001b[39m\u001b[90mC:/Users/LITE/Open-Codemap\u001b[39m\n\n \u001b[32m✓\u001b[39m test/integration/retriever.test.ts \u001b[2m(\u001b[22m\u001b[2m7 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 379\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/unit/retriever-api-shape.test.ts \u001b[2m(\u001b[22m\u001b[2m6 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[90m 2\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m2 passed\u001b[39m\u001b[22m\u001b[90m (2)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m13 passed\u001b[39m\u001b[22m\u001b[90m (13)\u001b[39m\n\u001b[2m   Start at \u001b[22m 19:24:26\n\u001b[2m   Duration \u001b[22m 776ms\u001b[2m (transform 79ms, setup 0ms, collect 181ms, tests 381ms, environment 0ms, prepare 79ms)\u001b[22m",
+          "criteria": [
+            "AC1",
+            "AC2"
+          ]
+        },
+        {
+          "id": "E2",
+          "kind": "automated",
+          "method": "integration-tests",
+          "result": "pass",
+          "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+          "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef",
+          "at": "2026-10-18T18:25:09.608Z",
+          "by": "claude-code",
+          "detail": "$ pnpm exec vitest run test/integration/retriever.test.ts test/unit/retriever-api-shape.test.ts\nshell: bash\nexit 0\n\u001b[1m\u001b[7m\u001b[36m RUN \u001b[39m\u001b[27m\u001b[22m \u001b[36mv2.1.9 \u001b[39m\u001b[90mC:/Users/LITE/Open-Codemap\u001b[39m\n\n \u001b[32m✓\u001b[39m test/integration/retriever.test.ts \u001b[2m(\u001b[22m\u001b[2m7 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 408\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m✓\u001b[39m test/unit/retriever-api-shape.test.ts \u001b[2m(\u001b[22m\u001b[2m6 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[90m 2\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m2 passed\u001b[39m\u001b[22m\u001b[90m (2)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m13 passed\u001b[39m\u001b[22m\u001b[90m (13)\u001b[39m\n\u001b[2m   Start at \u001b[22m 19:25:10\n\u001b[2m   Duration \u001b[22m 809ms\u001b[2m (transform 80ms, setup 0ms, collect 185ms, tests 411ms, environment 0ms, prepare 78ms)\u001b[22m",
+          "criteria": [
+            "AC1",
+            "AC2"
+          ]
+        }
+      ],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:25:09.608Z"
+    },
+    {
+      "id": "NS-006",
+      "title": "CLI: index, query, list, serve",
+      "description": "",
+      "featureId": "F-006",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-005"
+      ],
+      "dependsOn": [],
+      "priority": "medium",
+      "status": "verified",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "Quickstart against examples/sample-repo indexes and returns results for 'where do we validate login'"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "commits": [
+        "fcb1eab"
+      ],
+      "files": [],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:24:48.252Z",
+        "by": "claude-code",
+        "summary": "Existing v0.1.1 functionality (adopted, implemented in fcb1eab). Snapshot refreshed after cb5858d, which only added Northstar adapter/state files and .prettierignore entries; no source changes.",
+        "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+        "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef"
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "automated",
+          "method": "cli-quickstart",
+          "result": "pass",
+          "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+          "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef",
+          "at": "2026-10-18T18:25:22.795Z",
+          "by": "claude-code",
+          "detail": "$ node dist/cli/index.js index examples/sample-repo --embedder mock && node dist/cli/index.js query examples/sample-repo 'where do we validate login' --json | tee /dev/stderr | grep -Eq 'validateLogin|validate_login'\nshell: bash\nexit 0\n- Indexing…\n2026-10-18T18:25:23.661Z INFO [registry] opened workspace 64960fc873c08f14e92542c0e3f83971ce666eab7b4a3babb5d4d24fac971dd8 (dims=1024) at C:\\Users\\LITE\\Open-Codemap\\examples\\sample-repo\\.codemap\\64960fc873c08f14e92542c0e3f83971ce666eab7b4a3babb5d4d24fac971dd8.sqlite\n✔ Indexed examples/sample-repo — 4 files processed.\ntee: /dev/stderr: No such file or directory\n2026-10-18T18:25:24.201Z INFO [registry] opened workspace 64960fc873c08f14e92542c0e3f83971ce666eab7b4a3babb5d4d24fac971dd8 (dims=1024) at C:\\Users\\LITE\\Open-Codemap\\examples\\sample-repo\\.codemap\\64960fc873c08f14e92542c0e3f83971ce666eab7b4a3babb5d4d24fac971dd8.sqlite",
+          "criteria": [
+            "AC1"
+          ]
+        }
+      ],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:25:22.795Z"
+    },
+    {
+      "id": "NS-007",
+      "title": "Fastify HTTP API with background index jobs",
+      "description": "",
+      "featureId": "F-007",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-005"
+      ],
+      "dependsOn": [],
+      "priority": "medium",
+      "status": "verified",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "API integration test passes"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "commits": [
+        "fcb1eab"
+      ],
+      "files": [],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:24:48.582Z",
+        "by": "claude-code",
+        "summary": "Existing v0.1.1 functionality (adopted, implemented in fcb1eab). Snapshot refreshed after cb5858d, which only added Northstar adapter/state files and .prettierignore entries; no source changes.",
+        "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+        "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef"
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "automated",
+          "method": "integration-tests",
+          "result": "pass",
+          "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+          "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef",
+          "at": "2026-10-18T18:24:28.036Z",
+          "by": "claude-code",
+          "detail": "$ pnpm exec vitest run test/integration/api.test.ts\nshell: bash\nexit 0\nn-Codemap\u001b[39m\n\n \u001b[32m✓\u001b[39m test/integration/api.test.ts \u001b[2m(\u001b[22m\u001b[2m5 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[33m 445\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m1 passed\u001b[39m\u001b[22m\u001b[90m (1)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m5 passed\u001b[39m\u001b[22m\u001b[90m (5)\u001b[39m\n\u001b[2m   Start at \u001b[22m 19:24:28\n\u001b[2m   Duration \u001b[22m 1.06s\u001b[2m (transform 97ms, setup 0ms, collect 389ms, tests 445ms, environment 0ms, prepare 88ms)\u001b[22m\n\n2026-10-18T18:24:29.552Z INFO [registry] opened workspace bcb22c4f1edcf2589b561c86cbe9c0e543c2f83848c2758233721f98c9657b4d (dims=16) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-api-3IkQnt\\repo\\.codemap\\bcb22c4f1edcf2589b561c86cbe9c0e543c2f83848c2758233721f98c9657b4d.sqlite\n2026-10-18T18:24:29.720Z INFO [registry] opened workspace 11e5a64a4eddfa1b190ab3090fdfe52e2dab6ca49244257c8ba3ce1f21a8eec9 (dims=16) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-api-lmozQM\\repo\\.codemap\\11e5a64a4eddfa1b190ab3090fdfe52e2dab6ca49244257c8ba3ce1f21a8eec9.sqlite\n2026-10-18T18:24:29.808Z INFO [registry] opened workspace 11e5a64a4eddfa1b190ab3090fdfe52e2dab6ca49244257c8ba3ce1f21a8eec9 (dims=16) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-api-lmozQM\\repo\\.codemap\\11e5a64a4eddfa1b190ab3090fdfe52e2dab6ca49244257c8ba3ce1f21a8eec9.sqlite\n2026-10-18T18:24:29.866Z INFO [registry] opened workspace 4649508407b368c4c4cbcab7cb809d220431fdb3af77c9b2dc9056f6bd5c1e4b (dims=16) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-api-Ur8kvl\\repo\\.codemap\\4649508407b368c4c4cbcab7cb809d220431fdb3af77c9b2dc9056f6bd5c1e4b.sqlite",
+          "criteria": [
+            "AC1"
+          ]
+        },
+        {
+          "id": "E2",
+          "kind": "automated",
+          "method": "integration-tests",
+          "result": "pass",
+          "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+          "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef",
+          "at": "2026-10-18T18:25:11.563Z",
+          "by": "claude-code",
+          "detail": "$ pnpm exec vitest run test/integration/api.test.ts\nshell: bash\nexit 0\n   \u001b[33m\u001b[2m✓\u001b[22m\u001b[39m API (integration)\u001b[2m > \u001b[22mGET /workspaces lists indexed workspaces \u001b[33m1249\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m1 passed\u001b[39m\u001b[22m\u001b[90m (1)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m5 passed\u001b[39m\u001b[22m\u001b[90m (5)\u001b[39m\n\u001b[2m   Start at \u001b[22m 19:25:12\n\u001b[2m   Duration \u001b[22m 2.40s\u001b[2m (transform 98ms, setup 0ms, collect 391ms, tests 1.81s, environment 0ms, prepare 75ms)\u001b[22m\n\n2026-10-18T18:25:13.111Z INFO [registry] opened workspace 5178f83403d3bf61d768278d38ae1e30ff11f62aff7d8fcffff358902552deea (dims=16) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-api-6ZoBMw\\repo\\.codemap\\5178f83403d3bf61d768278d38ae1e30ff11f62aff7d8fcffff358902552deea.sqlite\n2026-10-18T18:25:13.334Z INFO [registry] opened workspace 603ad8651747358ca0655141d62cbf1f003415d2a18a9ad8e4254e4ac7fb5c30 (dims=16) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-api-VwcSfq\\repo\\.codemap\\603ad8651747358ca0655141d62cbf1f003415d2a18a9ad8e4254e4ac7fb5c30.sqlite\n2026-10-18T18:25:13.541Z INFO [registry] opened workspace 603ad8651747358ca0655141d62cbf1f003415d2a18a9ad8e4254e4ac7fb5c30 (dims=16) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-api-VwcSfq\\repo\\.codemap\\603ad8651747358ca0655141d62cbf1f003415d2a18a9ad8e4254e4ac7fb5c30.sqlite\n2026-10-18T18:25:14.181Z INFO [registry] opened workspace 1d0cf263c878557cf571d24fac0d72a3b0281000c71f5e5348980d3e139c1007 (dims=16) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-api-IWk22h\\repo\\.codemap\\1d0cf263c878557cf571d24fac0d72a3b0281000c71f5e5348980d3e139c1007.sqlite",
+          "criteria": [
+            "AC1"
+          ]
+        }
+      ],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:25:11.563Z"
+    },
+    {
+      "id": "NS-008",
+      "title": "Dual ESM + CJS build and public API barrel",
+      "description": "",
+      "featureId": "F-008",
+      "milestoneId": "MS-001",
+      "requirementIds": [
+        "REQ-005",
+        "REQ-006"
+      ],
+      "dependsOn": [],
+      "priority": "medium",
+      "status": "verified",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "pnpm build succeeds"
+        },
+        {
+          "id": "AC2",
+          "text": "CJS require test passes"
+        },
+        {
+          "id": "AC3",
+          "text": "pnpm typecheck passes"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "commits": [
+        "fcb1eab"
+      ],
+      "files": [],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:24:48.926Z",
+        "by": "claude-code",
+        "summary": "Existing v0.1.1 functionality (adopted, implemented in fcb1eab). Snapshot refreshed after cb5858d, which only added Northstar adapter/state files and .prettierignore entries; no source changes.",
+        "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+        "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef"
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "automated",
+          "method": "build-and-typecheck",
+          "result": "pass",
+          "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+          "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef",
+          "at": "2026-10-18T18:24:30.279Z",
+          "by": "claude-code",
+          "detail": "$ pnpm build && pnpm exec vitest run test/unit/cjs-require.test.ts --reporter verbose 2>&1 | tee /dev/stderr | grep -q 'exposes the documented library surface' && ! pnpm exec vitest run test/unit/cjs-require.test.ts 2>&1 | grep -q skipped && pnpm typecheck\nshell: bash\nexit 0\n[1mdist\\index.d.ts             \u001b[22m\u001b[32m15.35 KB\u001b[39m\n\u001b[32mDTS\u001b[39m \u001b[1mdist\\indexer-BdHXZeWM.d.ts  \u001b[22m\u001b[32m15.55 KB\u001b[39m\n\u001b[32mDTS\u001b[39m \u001b[1mdist\\cli\\index.d.cts        \u001b[22m\u001b[32m20.00 B\u001b[39m\n\u001b[32mDTS\u001b[39m \u001b[1mdist\\api\\index.d.cts        \u001b[22m\u001b[32m1.65 KB\u001b[39m\n\u001b[32mDTS\u001b[39m \u001b[1mdist\\index.d.cts            \u001b[22m\u001b[32m15.35 KB\u001b[39m\n\u001b[32mDTS\u001b[39m \u001b[1mdist\\indexer-BdHXZeWM.d.cts \u001b[22m\u001b[32m15.55 KB\u001b[39m\n\n> @alaa-taieb/open-codemap@0.1.1 typecheck C:\\Users\\LITE\\Open-Codemap\n> tsc --noEmit\n\n\n\u001b[43m\u001b[30m WARN \u001b[39m\u001b[49m \u001b[33m▲ \u001b[43;33m[\u001b[43;30mWARNING\u001b[43;33m]\u001b[0m \u001b[1m\"import.meta\" is not available with the \"cjs\" output format and will be empty\u001b[0m [empty-import-meta]\n\n    src/core/parser/grammars.ts:27:75:\n\u001b[37m      27 │ ...typeof __filename !== 'undefined' ? __filename : \u001b[32mimport.meta\u001b[37m.url);\n         ╵                                                     \u001b[32m~~~~~~~~~~~\u001b[0m\n\n  You need to set the output format to \"esm\" for \"import.meta\" to work correctly.\n\n\n\n\n\u001b[43m\u001b[30m WARN \u001b[39m\u001b[49m \u001b[33m▲ \u001b[43;33m[\u001b[43;30mWARNING\u001b[43;33m]\u001b[0m \u001b[1m\"import.meta\" is not available with the \"cjs\" output format and will be empty\u001b[0m [empty-import-meta]\n\n    src/core/store/sqlite.ts:33:79:\n\u001b[37m      33 │ ...typeof __filename !== 'undefined' ? __filename : \u001b[32mimport.meta\u001b[37m.url);\n         ╵                                                     \u001b[32m~~~~~~~~~~~\u001b[0m\n\n  You need to set the output format to \"esm\" for \"import.meta\" to work correctly.\n\n\n\ntee: /dev/stderr: No such file or directory",
+          "criteria": [
+            "AC1",
+            "AC2",
+            "AC3"
+          ]
+        },
+        {
+          "id": "E2",
+          "kind": "automated",
+          "method": "build-and-typecheck",
+          "result": "pass",
+          "revision": "cb5858dbd435ce66d2d56d999c38f15eb5311d3c",
+          "tree": "9b4a4edfe105b8f9d58ab4c1f1d89aec5d0f0eef",
+          "at": "2026-10-18T18:25:15.151Z",
+          "by": "claude-code",
+          "detail": "$ pnpm build && pnpm exec vitest run test/unit/cjs-require.test.ts --reporter verbose | grep -q 'exposes the documented library surface' && ! pnpm exec vitest run test/unit/cjs-require.test.ts | grep -q skipped && pnpm typecheck\nshell: bash\nexit 0\n the output format to \"esm\" for \"import.meta\" to work correctly.\n\n\n\nnode:events:487\r\n      throw er; // Unhandled 'error' event\r\n      ^\r\n\r\nError: EPIPE: broken pipe, write\r\n    at Socket._write (node:internal/net:75:18)\r\n    at writeOrBuffer (node:internal/streams/writable:570:12)\r\n    at _write (node:internal/streams/writable:499:10)\r\n    at Writable.write (node:internal/streams/writable:508:10)\r\n    at Console.value (node:internal/console/constructor:313:16)\r\n    at Console.log (node:internal/console/constructor:416:26)\r\n    at Logger.log (file:///C:/Users/LITE/Open-Codemap/node_modules/.pnpm/vitest@2.1.9_@types+node@22.20.1/node_modules/vitest/dist/chunks/index.DsZFoqi9.js:3035:18)\r\n    at VerboseReporter.onFinished (file:///C:/Users/LITE/Open-Codemap/node_modules/.pnpm/vitest@2.1.9_@types+node@22.20.1/node_modules/vitest/dist/chunks/index.DsZFoqi9.js:4055:21)\r\n    at file:///C:/Users/LITE/Open-Codemap/node_modules/.pnpm/vitest@2.1.9_@types+node@22.20.1/node_modules/vitest/dist/chunks/cli-api.DqsSTaIi.js:11194:58\r\n    at Array.map (<anonymous>)\r\nEmitted 'error' event on Socket instance at:\r\n    at Socket.onerror (node:internal/streams/readable:1035:14)\r\n    at Socket.emit (node:events:509:28)\r\n    at emitErrorNT (node:internal/streams/destroy:170:8)\r\n    at emitErrorCloseNT (node:internal/streams/destroy:129:3)\r\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {\r\n  errno: -4047,\r\n  syscall: 'write',\r\n  code: 'EPIPE'\r\n}\r\n\r\nNode.js v24.15.0",
+          "criteria": [
+            "AC1",
+            "AC2",
+            "AC3"
+          ]
+        }
+      ],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:25:15.151Z"
+    },
+    {
+      "id": "NS-009",
+      "title": "Fix README: default embedder is mock, not Voyage",
+      "description": "",
+      "featureId": "F-009",
+      "milestoneId": "MS-002",
+      "requirementIds": [
+        "REQ-007"
+      ],
+      "dependsOn": [],
+      "priority": "low",
+      "status": "verified",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "README embedder section matches the CLI --embedder default"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "activeHarness": "claude-code",
+      "branch": "dev",
+      "workspace": "Open-Codemap",
+      "startedAt": "2026-10-18T18:47:34.977Z",
+      "commits": [
+        "f8f034b"
+      ],
+      "files": [
+        "README.md"
+      ],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:49:09.618Z",
+        "by": "claude-code",
+        "summary": "README embedder section now states the CLI/config default is mock and Voyage is the recommended paid backend; removed the non-existent API-key flag mention; table notes updated.",
+        "revision": "6aa346c6def259da02fe26d4a6e5492f5843b51f",
+        "tree": "7641ef73b8a0cfca78001ff1f6b259ed6f55098f"
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "automated",
+          "method": "doc-check",
+          "result": "pass",
+          "revision": "6aa346c6def259da02fe26d4a6e5492f5843b51f",
+          "tree": "7641ef73b8a0cfca78001ff1f6b259ed6f55098f",
+          "at": "2026-10-18T18:49:23.275Z",
+          "by": "claude-code",
+          "detail": "$ grep -q \"'mock',\" src/cli/commands/query.ts && grep -q 'default to the \\*\\*`mock`\\*\\* embedder' README.md && ! grep -qi 'default embedder is \\*\\*Voyage' README.md && ! grep -q 'Default paid backend' README.md\nshell: bash\nexit 0\n",
+          "criteria": []
+        }
+      ],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:49:23.275Z"
+    },
+    {
+      "id": "NS-010",
+      "title": "Fix changeset package name and stale CHANGELOG 'Unreleased' entry",
+      "description": "",
+      "featureId": "F-009",
+      "milestoneId": "MS-002",
+      "requirementIds": [
+        "REQ-007"
+      ],
+      "dependsOn": [],
+      "priority": "low",
+      "status": "verified",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "Changeset references @alaa-taieb/open-codemap"
+        },
+        {
+          "id": "AC2",
+          "text": "CHANGELOG has no stale scaffold entry"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "activeHarness": "claude-code",
+      "branch": "dev",
+      "workspace": "Open-Codemap",
+      "startedAt": "2026-10-18T18:47:59.425Z",
+      "commits": [
+        "6aa346c"
+      ],
+      "files": [
+        "CHANGELOG.md",
+        ".changeset/initial-release.md"
+      ],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:49:10.032Z",
+        "by": "claude-code",
+        "summary": "Deleted .changeset/initial-release.md (described the already-published 0.1.0 and used the wrong package name; would have caused a spurious bump) and moved its text into CHANGELOG as a 0.1.0 entry; removed stale 'Unreleased: Initial scaffold' entry.",
+        "revision": "6aa346c6def259da02fe26d4a6e5492f5843b51f",
+        "tree": "7641ef73b8a0cfca78001ff1f6b259ed6f55098f"
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "automated",
+          "method": "doc-check",
+          "result": "pass",
+          "revision": "6aa346c6def259da02fe26d4a6e5492f5843b51f",
+          "tree": "7641ef73b8a0cfca78001ff1f6b259ed6f55098f",
+          "at": "2026-10-18T18:49:23.740Z",
+          "by": "claude-code",
+          "detail": "$ ! grep -rlE \"^'open-codemap'\" .changeset && ! grep -q 'Initial scaffold' CHANGELOG.md && grep -q '^## 0.1.0' CHANGELOG.md && npx changeset status --since=HEAD >/dev/null 2>&1; ! ls .changeset/*.md | grep -v README.md\nshell: bash\nexit 0\n",
+          "criteria": []
+        }
+      ],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:49:23.740Z"
+    },
+    {
+      "id": "NS-011",
+      "title": "Single local gate command (lint + typecheck + test + build)",
+      "description": "",
+      "featureId": "F-009",
+      "milestoneId": "MS-002",
+      "requirementIds": [
+        "REQ-007"
+      ],
+      "dependsOn": [],
+      "priority": "medium",
+      "status": "verified",
+      "blockers": [],
+      "planned": true,
+      "acceptance": [
+        {
+          "id": "AC1",
+          "text": "One pnpm script runs all gates and fails on any failure"
+        }
+      ],
+      "requiresHumanApproval": false,
+      "activeHarness": "claude-code",
+      "branch": "dev",
+      "workspace": "Open-Codemap",
+      "startedAt": "2026-10-18T18:47:03.246Z",
+      "commits": [
+        "1308d11"
+      ],
+      "files": [
+        "package.json",
+        "CONTRIBUTING.md"
+      ],
+      "implementation": {
+        "reportedAt": "2026-10-18T18:49:09.192Z",
+        "by": "claude-code",
+        "summary": "Added 'pnpm check' (lint -> typecheck -> build -> test; build before test so the CJS test runs). Documented in CONTRIBUTING and README; fixed 'lint = eslint + prettier' wording (lint is ESLint only). Prettier check left out: core.autocrlf checkouts flag 74 files for CRLF only.",
+        "revision": "6aa346c6def259da02fe26d4a6e5492f5843b51f",
+        "tree": "7641ef73b8a0cfca78001ff1f6b259ed6f55098f"
+      },
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "automated",
+          "method": "gate-script",
+          "result": "pass",
+          "revision": "6aa346c6def259da02fe26d4a6e5492f5843b51f",
+          "tree": "7641ef73b8a0cfca78001ff1f6b259ed6f55098f",
+          "at": "2026-10-18T18:49:10.400Z",
+          "by": "claude-code",
+          "detail": "$ grep -q '\"check\": \"pnpm lint && pnpm typecheck && pnpm build && pnpm test\"' package.json && pnpm check\nshell: bash\nexit 0\n114f41b9318bbb42a297435d3177cf51958f9f3dfba73c55f2a25d5ca8e (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-NCpNiw\\.codemap\\3e8f1114f41b9318bbb42a297435d3177cf51958f9f3dfba73c55f2a25d5ca8e.sqlite\n2026-10-18T18:49:22.375Z INFO [registry] opened workspace 15fc4b47fda569c27388d912454224adfe1bd06ea8fdac521506352e20abfdaa (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-BG1T53\\.codemap\\15fc4b47fda569c27388d912454224adfe1bd06ea8fdac521506352e20abfdaa.sqlite\n2026-10-18T18:49:22.501Z INFO [registry] opened workspace eb9153920382faaef0554aa8868d070de5de25c2b7930e21ebd0b6bdbb7ccaca (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-KTgfnO\\.codemap\\eb9153920382faaef0554aa8868d070de5de25c2b7930e21ebd0b6bdbb7ccaca.sqlite\n2026-10-18T18:49:22.533Z INFO [registry] rebuild requested: removed existing index at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-KTgfnO\\.codemap\\eb9153920382faaef0554aa8868d070de5de25c2b7930e21ebd0b6bdbb7ccaca.sqlite\n2026-10-18T18:49:22.605Z INFO [registry] opened workspace eb9153920382faaef0554aa8868d070de5de25c2b7930e21ebd0b6bdbb7ccaca (dims=64) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-KTgfnO\\.codemap\\eb9153920382faaef0554aa8868d070de5de25c2b7930e21ebd0b6bdbb7ccaca.sqlite\n2026-10-18T18:49:22.688Z INFO [registry] opened workspace 8971c0dd37500b246a2570274b130607b6351a0ffa3a68ae9da25f384dab17ac (dims=32) at C:\\Users\\LITE\\AppData\\Local\\Temp\\codemap-reg-B8sdcj\\.codemap\\8971c0dd37500b246a2570274b130607b6351a0ffa3a68ae9da25f384dab17ac.sqlite",
+          "criteria": []
+        }
+      ],
+      "decisionIds": [],
+      "provenance": "inferred",
+      "createdAt": "2026-10-18T18:18:33.620Z",
+      "createdBy": "claude-code",
+      "updatedAt": "2026-10-18T18:49:10.400Z"
+    }
+  ]
+}

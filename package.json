@@ -60,6 +60,7 @@
     "format": "prettier --write .",
     "test": "vitest run",
     "test:watch": "vitest",
+    "check": "pnpm lint && pnpm typecheck && pnpm build && pnpm test",
     "prepare": "node -e \"if(require('fs').existsSync('.husky')){require('child_process').execSync('husky',{stdio:'inherit'})}\"",
     "prepublishOnly": "pnpm build",
     "prepack": "pnpm build"

@@ -1,0 +1,14 @@
+{
+  "id": "EV-0MVE6G7RI-ab0fb8",
+  "type": "task.started",
+  "at": "2026-10-18T18:47:03.246Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-011",
+    "MS-002"
+  ],
+  "summary": "claude-code started NS-011: Single local gate command (lint + typecheck + test + build)",
+  "data": {
+    "branch": "dev"
+  }
+}

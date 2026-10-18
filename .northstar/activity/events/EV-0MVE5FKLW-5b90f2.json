@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE5FKLW-5b90f2",
+  "type": "requirement.added",
+  "at": "2026-10-18T18:18:33.620Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "REQ-003"
+  ],
+  "summary": "Requirement REQ-003 added: Hybrid vector + BM25 + graph retrieval with RRF"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE5PI50-20e294",
+  "type": "milestone.criterion",
+  "at": "2026-10-18T18:26:16.980Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "MS-001"
+  ],
+  "summary": "MS-001 exit criterion X2 met: Build produces ESM + CJS outputs"
+}

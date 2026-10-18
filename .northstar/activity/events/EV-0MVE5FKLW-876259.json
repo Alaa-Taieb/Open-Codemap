@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE5FKLW-876259",
+  "type": "requirement.added",
+  "at": "2026-10-18T18:18:33.620Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "REQ-006"
+  ],
+  "summary": "Requirement REQ-006 added: Local-first, zero native compilation"
+}

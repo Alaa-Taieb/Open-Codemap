@@ -1,0 +1,11 @@
+{
+  "id": "EV-0MVE5O11B-3be966",
+  "type": "task.verified",
+  "at": "2026-10-18T18:25:08.159Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-004",
+    "MS-001"
+  ],
+  "summary": "Task NS-004 verified: Mock, Voyage and Jina embedders with batching"
+}

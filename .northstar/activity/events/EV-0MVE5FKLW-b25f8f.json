@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE5FKLW-b25f8f",
+  "type": "requirement.added",
+  "at": "2026-10-18T18:18:33.620Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "REQ-007"
+  ],
+  "summary": "Requirement REQ-007 added: Local quality gates"
+}

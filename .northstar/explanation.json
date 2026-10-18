@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-10-18T18:49:58.928Z",
+  "generatedBy": "claude-code",
+  "stateFingerprint": "47ea0225dc38771624a474d8812acbb0e1621b8408f0acf647781cdbc188381a",
+  "headline": "Open-Codemap v0.1.1 is on npm, everything it ships is verified, and the docs and release files are now accurate; no further work is planned yet.",
+  "overview": "Open-Codemap helps AI coding tools find the right piece of code in a repository. It splits code into functions and classes, indexes them in one local SQLite file, and answers both exact-name and plain-English questions by combining meaning, keyword and code-structure search. It runs locally and can be used as a TypeScript library, a command-line tool or a small web API.",
+  "pillars": [
+    {
+      "title": "Structural indexing",
+      "body": "Tree-sitter splits code into functions, classes and methods for about 150 languages."
+    },
+    {
+      "title": "Hybrid search",
+      "body": "Meaning, exact names and the import/call graph are merged into one ranked list."
+    },
+    {
+      "title": "Local-first",
+      "body": "One SQLite file per repo, no native build step, works offline with the mock embedder."
+    },
+    {
+      "title": "Three ways to use it",
+      "body": "Library (ESM and CommonJS), CLI and HTTP API on the same engine."
+    }
+  ],
+  "sections": [
+    {
+      "title": "What works today",
+      "body": "Verified by running checks: parsing and chunking, incremental and live re-indexing, the SQLite store, all three embedders, hybrid retrieval, the CLI quickstart, the HTTP API, and the ESM + CommonJS build. All 100 tests pass and the published npm 0.1.1 matches the code. One command, pnpm check, runs lint, typecheck, build and tests locally."
+    },
+    {
+      "title": "Reported but not yet verified",
+      "body": "Nothing."
+    },
+    {
+      "title": "Challenges",
+      "body": "No retrieval-quality benchmark on real repositories yet, and large-repo performance is unknown. GitHub Actions is off on the account, so all checks run locally."
+    },
+    {
+      "title": "Recent changes",
+      "body": "README now states the real default embedder (mock); the already-released changeset and a stale changelog line were removed; a pnpm check gate was added. All on the dev branch."
+    },
+    {
+      "title": "Next up",
+      "body": "No milestone planned beyond housekeeping. Candidates: a retrieval-quality benchmark, a native sqlite-vec backend, a reranker, or a precise call graph."
+    }
+  ]
+}

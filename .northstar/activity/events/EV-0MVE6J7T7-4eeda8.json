@@ -1,0 +1,11 @@
+{
+  "id": "EV-0MVE6J7T7-4eeda8",
+  "type": "task.verified",
+  "at": "2026-10-18T18:49:23.275Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-009",
+    "MS-002"
+  ],
+  "summary": "Task NS-009 verified: Fix README: default embedder is mock, not Voyage"
+}

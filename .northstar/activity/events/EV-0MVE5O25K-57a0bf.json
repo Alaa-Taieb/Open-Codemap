@@ -1,0 +1,11 @@
+{
+  "id": "EV-0MVE5O25K-57a0bf",
+  "type": "task.verified",
+  "at": "2026-10-18T18:25:09.608Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-005",
+    "MS-001"
+  ],
+  "summary": "Task NS-005 verified: Hybrid retriever with RRF, graph expansion and fallback"
+}

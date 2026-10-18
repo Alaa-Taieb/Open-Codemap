@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE6JDFT-5ff8a4",
+  "type": "milestone.criterion",
+  "at": "2026-10-18T18:49:30.569Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "MS-002"
+  ],
+  "summary": "MS-002 exit criterion X2 met: Changesets reference the real package name"
+}

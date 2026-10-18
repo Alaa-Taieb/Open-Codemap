@@ -1,0 +1,11 @@
+{
+  "id": "EV-0MVE6IXVK-03103a",
+  "type": "task.verified",
+  "at": "2026-10-18T18:49:10.400Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-011",
+    "MS-002"
+  ],
+  "summary": "Task NS-011 verified: Single local gate command (lint + typecheck + test + build)"
+}

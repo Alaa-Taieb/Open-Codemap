@@ -1,0 +1,11 @@
+{
+  "id": "EV-0MVE5O6FJ-577445",
+  "type": "task.verified",
+  "at": "2026-10-18T18:25:15.151Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-008",
+    "MS-001"
+  ],
+  "summary": "Task NS-008 verified: Dual ESM + CJS build and public API barrel"
+}

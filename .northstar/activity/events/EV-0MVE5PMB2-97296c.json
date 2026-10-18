@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE5PMB2-97296c",
+  "type": "milestone.criterion",
+  "at": "2026-10-18T18:26:22.382Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "MS-001"
+  ],
+  "summary": "MS-001 exit criterion X3 met: Published 0.1.1 matches main"
+}

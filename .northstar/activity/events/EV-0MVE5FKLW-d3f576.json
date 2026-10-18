@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE5FKLW-d3f576",
+  "type": "feature.created",
+  "at": "2026-10-18T18:18:33.620Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "F-002"
+  ],
+  "summary": "Feature F-002 created: Incremental indexer + watch"
+}

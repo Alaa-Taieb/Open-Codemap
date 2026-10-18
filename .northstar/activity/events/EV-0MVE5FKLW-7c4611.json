@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE5FKLW-7c4611",
+  "type": "requirement.added",
+  "at": "2026-10-18T18:18:33.620Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "REQ-002"
+  ],
+  "summary": "Requirement REQ-002 added: Incremental and live re-indexing"
+}

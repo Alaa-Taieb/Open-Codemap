@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE5FKLW-ce0e5d",
+  "type": "task.created",
+  "at": "2026-10-18T18:18:33.620Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-007"
+  ],
+  "summary": "Task NS-007 created: Fastify HTTP API with background index jobs"
+}
