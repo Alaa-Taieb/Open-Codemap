@@ -3,10 +3,6 @@
 This project adheres to [Semantic Versioning](https://semver.org/) and uses
 [Changesets](https://github.com/changesets/changesets) to manage releases.
 
-## Unreleased
-
-- Initial scaffold (Phase 0): package, tooling, and CI setup.
-
 ## 0.1.1
 
 Integration-blocking fixes (all additive / doc-only — the exported API surface is unchanged):
@@ -32,3 +28,7 @@ Integration-blocking fixes (all additive / doc-only — the exported API surface
   `Retriever` constructor now throws `ConfigError` if `repoId` is missing.
 - Added regression unit tests: `cjs-require.test.ts`, `grammar-resolution.test.ts`,
   `retriever-api-shape.test.ts`.
+
+## 0.1.0
+
+- Initial public release: library, CLI, and HTTP API for local-first codebase indexing + hybrid retrieval.
