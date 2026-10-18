@@ -1,0 +1,11 @@
+{
+  "id": "EV-0MVE5NVHC-3a0866",
+  "type": "task.verified",
+  "at": "2026-10-18T18:25:00.960Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-001",
+    "MS-001"
+  ],
+  "summary": "Task NS-001 verified: Tree-sitter parser, cAST chunker and symbol extraction"
+}

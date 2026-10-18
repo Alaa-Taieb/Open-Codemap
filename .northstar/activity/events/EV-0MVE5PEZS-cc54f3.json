@@ -1,0 +1,10 @@
+{
+  "id": "EV-0MVE5PEZS-cc54f3",
+  "type": "milestone.criterion",
+  "at": "2026-10-18T18:26:12.904Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "MS-001"
+  ],
+  "summary": "MS-001 exit criterion X1 met: All tests pass locally"
+}

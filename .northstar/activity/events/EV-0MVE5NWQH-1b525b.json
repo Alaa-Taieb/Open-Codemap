@@ -1,0 +1,11 @@
+{
+  "id": "EV-0MVE5NWQH-1b525b",
+  "type": "task.verified",
+  "at": "2026-10-18T18:25:02.585Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-002",
+    "MS-001"
+  ],
+  "summary": "Task NS-002 verified: Incremental indexer with content-hash fix-up and watch mode"
+}

@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-10-18T18:26:47.531Z",
+  "generatedBy": "claude-code",
+  "stateFingerprint": "31773d2cd8308d1720e41127185c969b83e876e3ab8b5d4120e294d8d5634238",
+  "headline": "Open-Codemap v0.1.1 is on npm and everything it ships has been checked and works; next is a small tidy-up of docs and release files.",
+  "overview": "Open-Codemap helps AI coding tools find the right piece of code in a repository. It splits code into functions and classes, indexes them in one local SQLite file, and answers both exact-name and plain-English questions by combining meaning, keyword and code-structure search. It runs locally and can be used as a TypeScript library, a command-line tool or a small web API.",
+  "pillars": [
+    {
+      "title": "Structural indexing",
+      "body": "Tree-sitter splits code into functions, classes and methods for about 150 languages."
+    },
+    {
+      "title": "Hybrid search",
+      "body": "Meaning, exact names and the import/call graph are merged into one ranked list."
+    },
+    {
+      "title": "Local-first",
+      "body": "One SQLite file per repo, no native build step, works offline with the mock embedder."
+    },
+    {
+      "title": "Three ways to use it",
+      "body": "Library (ESM and CommonJS), CLI and HTTP API on the same engine."
+    }
+  ],
+  "sections": [
+    {
+      "title": "What works today",
+      "body": "Verified by running checks: parsing and chunking, incremental and live re-indexing, the SQLite store, all three embedders, hybrid retrieval, the CLI quickstart, the HTTP API, and the ESM + CommonJS build. All 99 tests pass, and the published npm 0.1.1 matches the code on main."
+    },
+    {
+      "title": "Reported but not yet verified",
+      "body": "Nothing."
+    },
+    {
+      "title": "Challenges",
+      "body": "No retrieval-quality benchmark on real repositories yet, and large-repo performance is unknown. GitHub Actions is off on the account, so all checks run locally."
+    },
+    {
+      "title": "Recent changes",
+      "body": "Project brought under Northstar on a new dev branch; the existing v0.1.1 features were verified."
+    },
+    {
+      "title": "Next up",
+      "body": "Fix the README's default-embedder claim, fix the release-note package name and stale changelog line, and add one local command that runs every quality check."
+    }
+  ]
+}

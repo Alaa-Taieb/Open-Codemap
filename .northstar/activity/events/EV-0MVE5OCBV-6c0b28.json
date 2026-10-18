@@ -1,0 +1,11 @@
+{
+  "id": "EV-0MVE5OCBV-6c0b28",
+  "type": "task.verified",
+  "at": "2026-10-18T18:25:22.795Z",
+  "actor": "claude-code",
+  "entityIds": [
+    "NS-006",
+    "MS-001"
+  ],
+  "summary": "Task NS-006 verified: CLI: index, query, list, serve"
+}
