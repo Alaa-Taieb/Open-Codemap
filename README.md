@@ -175,19 +175,20 @@ for (const r of results) {
 
 ## Embedder configuration
 
-The default embedder is **Voyage `code-3`** (`voyage-code-3`, 1024-dim, code-tuned). Set
-the key via env var or flag:
+The CLI and config default to the **`mock`** embedder (`--embedder mock`), so everything works
+offline with no API key. For real semantic search, use **Voyage `code-3`** (`voyage-code-3`,
+1024-dim, code-tuned): set the key via env var and pass `--embedder voyage`:
 
 ```bash
 export VOYAGE_AI_API_KEY=...
 node dist/cli/index.js index ./my-repo --embedder voyage
 ```
 
-| Kind     | Model                | Env var             | Notes                                        |
-| -------- | -------------------- | ------------------- | -------------------------------------------- |
-| `mock`   | `HashEmbedder`       | —                   | Deterministic, no network/key. Tests + demo. |
-| `voyage` | `voyage-code-3`      | `VOYAGE_AI_API_KEY` | Default paid backend (code-tuned, 32K ctx).  |
-| `jina`   | `jina-embeddings-v3` | `JINA_API_KEY`      | OSS-friendly fallback.                       |
+| Kind     | Model                | Env var             | Notes                                       |
+| -------- | -------------------- | ------------------- | ------------------------------------------- |
+| `mock`   | `HashEmbedder`       | —                   | Default. Deterministic, no network/key.     |
+| `voyage` | `voyage-code-3`      | `VOYAGE_AI_API_KEY` | Recommended paid backend (code-tuned, 32K). |
+| `jina`   | `jina-embeddings-v3` | `JINA_API_KEY`      | OSS-friendly fallback.                      |
 
 > **Switching embedder dims requires re-indexing.** If you change the embedding width
 > (e.g. swap Voyage for an OSS model with different dims), pass `--rebuild` (or
@@ -216,8 +217,9 @@ node dist/cli/index.js serve ./my-repo --embedder mock --port 8787
 | ---------------- | ----------------------------------------- |
 | `pnpm build`     | Bundle `index` / `cli` / `api` with tsup. |
 | `pnpm typecheck` | `tsc --noEmit` (strict).                  |
-| `pnpm lint`      | ESLint (flat config) + Prettier.          |
+| `pnpm lint`      | ESLint (flat config).                     |
 | `pnpm test`      | Vitest unit + integration + e2e.          |
+| `pnpm check`     | Lint, typecheck, build, then test.        |
 
 ## Limits & open questions
 
