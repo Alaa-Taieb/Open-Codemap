@@ -7,9 +7,10 @@ Thanks for your interest in contributing!
 ```bash
 pnpm install
 pnpm typecheck   # tsc --noEmit (strict)
-pnpm lint        # eslint + prettier
+pnpm lint        # eslint
 pnpm test        # vitest (uses the deterministic HashEmbedder — no API keys needed)
 pnpm build       # tsup → dist/
+pnpm check       # all of the above in one go (lint → typecheck → build → test); run before pushing
 ```
 
 ## Commit conventions
